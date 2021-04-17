@@ -1,0 +1,358 @@
+{
+    "navbar": {
+      "search": {
+        "text": "Search..."
+      },
+      "dropdown": {
+        "notification": {
+          "text": "Notifications",
+          "subtext": "View All",
+          "order": {
+            "title": "Your order is placed",
+            "text": "If several languages coalesce the grammar",
+            "time": "3 min ago"
+          },
+          "james": {
+            "title": "James Lemire",
+            "text": "It will seem like simplified English.",
+            "time": "1 hours ago"
+          },
+          "item": {
+            "title": "Your item is shipped",
+            "text": "If several languages coalesce the grammar",
+            "time": "3 min ago"
+          },
+          "salena": {
+            "title": "Salena Layfield",
+            "text": "As a skeptical Cambridge friend of mine occidental.",
+            "time": "1 hours ago"
+          },
+          "button": "Load More.."
+        },
+        "kevin": {
+          "text": "Kevin",
+          "list": {
+            "profile": "Profile",
+            "mywallet": "My Wallet",
+            "settings": "Settings",
+            "lockscreen": "Lock screen",
+            "logout": "Logout"
+          }
+        }
+      }
+    },
+    "menuitems": {
+      "menu": {
+        "text": "Menu"
+      },
+      "dashboard": {
+        "text": "Tableau de bord"
+      },  
+      "farmers": {
+        "text": "Agriculteurs",
+        "list":{
+          "farmers":"Liste d'agriculteurs",
+          "addfarmer":"Ajouter un agriculteur"
+      }
+      },
+      "crops": {
+        "text": "Récoltes",
+        "list":{
+          "peach":{
+            "text":"Pêche",
+            "list":{
+              "peachcrops":"Récoltes de pêche",
+              "addpeach":"Ajouter le récolte quotidien"
+            }
+          },
+          "olives":{
+            "text":"Olives",
+            "list":{
+              "olivescrops":"Récoltes d'olives",
+              "addolives":"Ajouter le récolte quotidien"
+            }
+          },
+          "almond":{
+            "text":"Amande",
+            "list":{
+              "almondcrops":"Récoltes d'amande",
+              "addalmond":"Ajouter le récolte quotidien"
+            }
+          }
+        }
+      },
+      "expenses":{
+        "text":"Dépenses",
+        "list":{
+            "expenses":"Liste des dépenses",
+            "addexpenses":"Ajouter un dépense"
+        }
+      },
+      "expensetypes":{
+        "text":"Types de dépenses",
+        "list":{
+          "expensetypes":"types de dépenses",
+          "addexpensetype":"Ajouter type de dépenses"
+        }
+      },
+      "outgoings":{
+        "text":"Charges",
+        "list":{
+          "outgoings":"Liste des charges",
+          "addoutgoing":"Ajouter une charge"
+        }
+      },
+      "elements":{
+        "text":"Eléments",
+        "list":{
+          "parcels":{
+            "text":"Parcelles",
+            "list":{
+              "parcelslist":"Liste des parcelles",
+              "addparcel":"Ajouter une parcelle"
+            }
+          },
+          "calibers":{
+            "text":"Calibres",
+            "list":{
+              "caliberslist":"Liste des calibres",
+              "addcaliber":"Ajouter un calibre"
+            }
+          },
+          "rootstocks":{
+            "text":"Porte-greffes",
+            "list":{
+              "rootstockslist":"Liste des porte-greffes",
+              "addrootstock":"Ajouter un porte-greffe"
+            }
+          },
+          "varieties":{
+            "text":"Variétés",
+            "list":{
+              "varietieslist":"Liste des variétés",
+              "addvariety":"Ajouter une variété"
+            }
+          }
+        }
+      }
+    },
+    "pages":{
+      "farmers":{
+        "title":"Agriculteurs"
+      },
+      "editfarmer":{
+        "title":"Modifier un agriculteur",
+        "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"
+      },
+      "addfarmer":{
+        "title":"Ajouter un agriculteur",
+        "description":"Pour créer un nouvel agriculteur, veuillez remplir les champs ci-dessous"
+      },
+      "peachcrops":{
+        "title":"Récoltes de pêche"
+      },
+      "addpeachcrop":{
+        "title":"Ajouter une récolte de pêche", 
+        "description":"Pour créer une récolte de pêche, veuillez remplir les champs ci-dessous"   
+      },
+      "editpeachcrop":{
+        "title":"Modifier la récolte de pêche", 
+        "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"   
+      },
+      "olivescrops":{
+        "title":"Récoltes d'olives"
+      },
+      "addolivescrop":{
+        "title":"Ajouter une récolte d'olives",
+        "description":"Pour créer une récolte de d'olives, veuillez remplir les champs ci-dessous"   
+      },
+      "editolivescrop":{
+        "title":"Modifier la récolte d'olives", 
+        "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"   
+      },
+      "almondcrops":{
+        "title":"Récoltes d'amande"
+      },
+      "addalmondcrop":{
+        "title":"Ajouter une récolte d'amande",
+        "description":"Pour créer une récolte d'amande, veuillez remplir les champs ci-dessous"   
+      },
+      "editalmondcrop":{
+        "title":"Modifier la récolte d'amande", 
+        "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"   
+      },
+      "expenses":{
+        "title":"Dépenses"
+      },
+      "addexpense":{
+        "title":"Ajouter une dépense"
+      },
+      "editexpense":{
+        "title":"Modifier la dépense", 
+        "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"   
+      },
+      "expensetypes":{
+        "title":"Types de dépenses"
+      },
+      "addexpensetype":{
+        "title":"Ajouter un type de dépense",
+        "description":"Pour créer un type de dépense, veuillez remplir le champs ci-dessous"
+      },
+      "editexpensetype":{
+        "title":"Modifier type de dépense",
+        "description":"Vous pouvez modifier le champs, par lui donner une nouvelle valeur"
+      },
+      "outgoings":{
+        "title":"Outgoings"
+      },
+      "addoutgoing":{
+        "title":"Ajouter une charge",
+        "description":"Pour créer une charge, veuillez remplir les champs ci-dessous"
+      },
+      "editoutgoing":{
+        "title":"Modifier la charge",
+        "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"
+      },
+      "parcels":{
+        "title":"Parcelles"
+      },
+      "addparcel":{
+        "title":"Ajouter une parcelle",
+        "description":"Pour créer une parcelle, veuillez remplir les champs ci-dessous"
+      },
+      "editparcel":{
+        "title":"Modifier parcelle",
+        "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"
+      },
+      "calibers":{
+        "title":"Calibres"
+      },
+      "addcaliber":{
+        "title":"Ajouter un calibre",
+        "description":"Pour créer un calibre, veuillez remplir les champs ci-dessous"
+      },
+      "editcaliber":{
+        "title":"Modifier un calibre",
+        "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"
+      },
+      "rootstocks":{
+        "title":"Porte-greffes"
+      },
+      "addrootstock":{
+        "title":"Ajouter un porte-greffe",
+        "description":"Pour créer un porte-greffe, veuillez remplir les champs ci-dessous"
+      },
+      "editrootstock":{
+        "title":"Modifier porte-greffe",
+        "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"
+      },
+      "varieties":{
+        "title":"Variétés"
+      },
+      "addvariety":{
+        "title":"Ajouter une variété",
+        "description":"Pour créer une variété, veuillez remplir les champs ci-dessous"
+      },
+      "editvariety":{
+        "title":"Modifier variété",
+        "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"
+      }
+    },
+    "forms":{
+      "fullname":"Nom et prénom",
+      "phone":"Numéro de téléphone",
+      "cropboxesnumber":"Nombre de caisses",
+      "cropparcel":"parcelle",
+      "cropvariety":"Variété",
+      "croprootstock":"Porte-greffe",
+      "cropcaliber":"Calibre",
+      "cropexpenseprice":"Prix",
+      "caliber":"Calibre",
+      "parcel":"Parcelle",
+      "rootstock":"Porte-greffe",
+      "variety":"Variété",
+      "roottype":"Type racine",
+      "peach":"Pêche",
+      "olives":"Olives",
+      "almond":"Amande",
+      "relatedtofarmers":"A la tâche",
+      "expenselabel":"Etiquette de dépense",
+      "expensetype":"Type de dépense",
+      "expensemeasureunit":"Unité de mesure",
+      "outgoinglabel":"Etiquette de charge",
+      "outgoingtype":"Type de charge",
+      "outgoingmeasureunit":"Unité de mesure",
+      "quantity":"Quantité"
+    },
+    "tables":{
+      "farmers":{
+        "title":"Agriculteurs",
+        "farmerid":"ID Agriculteur",
+        "fullname":"Nom et prénom",
+        "price":"prix",
+        "relatedtofarmer":"A la tache",
+        "createdate":"Crée le"
+      },
+      "crops":{
+        "title":"Récoltes",
+        "id":"ID Récolte",
+        "parcel":"Parcelle",
+        "variety":"Variété",
+        "rootstock":"Porte-greffe",
+        "caliber":"Calibre",
+        "boxesnumber":"NO de caisses"
+      },
+      "expenses":{
+        "title":"Dépenses",
+        "id":"ID Dépense",
+        "type":"Type",
+        "label":"étiquette",
+        "unit":"Unité de mesure",
+        "price":"Prix",
+        "date":"Crée le"
+      },
+      "expensetypes":{
+        "title":"Types de dépenses",
+        "id":"ID type de dépense",
+        "expensetype":"Type",
+        "date":"Crée le"
+      },
+      "outgoings":{
+        "title":"Charges",
+        "id":"ID charge",
+        "label":"Etiquette",
+        "type":"Type",
+        "quantity":"Quantité",
+        "unit":"Unité de mesure",
+        "price":"Prix",
+        "date":"Crée le"
+      },
+      "calibers":{
+        "title":"Calibres",
+        "id":"ID Calibre",
+        "caliber":"Calibre"
+      },
+      "parcels":{
+        "title":"Parcelles",
+        "id":"ID Parcelle",
+        "parcel":"Parcelle"
+      },
+      "rootstocks":{
+        "title":"Portes-greffe",
+        "id":"ID Porte-greffe",
+        "rootstock":"Porte-greffe"
+      },
+      "varieties":{
+        "title":"Variétés",
+        "id":"ID Variété",
+        "variety":"Variété",
+        "type":"Type racine"
+      }
+    },
+    "stats":{
+      "farmersnumber":"Nombre d'agriculteurs",
+      "dailycrops":"Récoltes quotidiennes",
+      "totalexpenses":"Totale des dépenses",
+      "previousperiod":"de la précedente fois"
+    }
+  }

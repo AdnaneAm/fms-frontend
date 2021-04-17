@@ -1,0 +1,364 @@
+{
+  "navbar": {
+    "search": {
+      "text": "Search..."
+    },
+    "dropdown": {
+      "notification": {
+        "text": "Notifications",
+        "subtext": "View All",
+        "order": {
+          "title": "Your order is placed",
+          "text": "If several languages coalesce the grammar",
+          "time": "3 min ago"
+        },
+        "james": {
+          "title": "James Lemire",
+          "text": "It will seem like simplified English.",
+          "time": "1 hours ago"
+        },
+        "item": {
+          "title": "Your item is shipped",
+          "text": "If several languages coalesce the grammar",
+          "time": "3 min ago"
+        },
+        "salena": {
+          "title": "Salena Layfield",
+          "text": "As a skeptical Cambridge friend of mine occidental.",
+          "time": "1 hours ago"
+        },
+        "button": "Load More.."
+      },
+      "kevin": {
+        "text": "Kevin",
+        "list": {
+          "profile": "Profile",
+          "mywallet": "My Wallet",
+          "settings": "Settings",
+          "lockscreen": "Lock screen",
+          "logout": "Logout"
+        }
+      }
+    }
+  },
+  "menuitems": {
+    "menu": {
+      "text": "Menu"
+    },
+    "dashboard": {
+      "text": "Dashboard"
+    },  
+    "farmers": {
+      "text": "Farmers",
+      "list":{
+        "farmers":"Farmers list",
+        "addfarmer":"Create a farmer"
+    }
+    },
+    "crops": {
+      "text": "crops",
+      "list":{
+        "peach":{
+          "text":"Peach",
+          "list":{
+            "peachcrops":"Peach crops",
+            "addpeach":"Add daily crop"
+          }
+        },
+        "olives":{
+          "text":"Olives",
+          "list":{
+            "olivescrops":"Olives crops",
+            "addolives":"Add daily crop"
+          }
+        },
+        "almond":{
+          "text":"Almond",
+          "list":{
+            "almondcrops":"Almond crops",
+            "addalmond":"Add daily crop"
+          }
+        }
+      }
+    },
+    "expenses":{
+      "text":"Expenses",
+      "list":{
+        "expenses":"Expenses list",
+        "addexpenses":"Add an expense"
+      }
+    },
+    "expensetypes":{
+      "text":"Expense types",
+      "list":{
+        "expensetypes":"Expense types list",
+        "addexpensetype":"Add an expense type"
+      }
+    },
+    "outgoings":{
+      "text":"Outgoings",
+      "list":{
+        "outgoings":"Outgoings list",
+        "addoutgoing":"Add an outgoing"
+      }
+    },
+    "elements":{
+      "text":"Elements",
+      "list":{
+        "parcels":{
+          "text":"Parcels",
+          "list":{
+            "parcelslist":"List of parcels",
+            "addparcel":"Create a parcel"
+          }
+        },
+        "calibers":{
+          "text":"Calibers",
+          "list":{
+            "caliberslist":"List of calibers",
+            "addcaliber":"Create a caliber"
+          }
+        },
+        "rootstocks":{
+          "text":"Rootstocks",
+          "list":{
+            "rootstockslist":"List of rootstocks",
+            "addrootstock":"Create a rootstock"
+          }
+        },
+        "varieties":{
+          "text":"Varieties",
+          "list":{
+            "varietieslist":"List of varieties",
+            "addvariety":"Create a variety"
+          }
+        }
+      }
+    }
+  },
+  "pages":{
+    "farmers":{
+      "title":"Farmers"
+    },
+    "editfarmer":{
+      "title":"Edit Farmer",
+      "description":"You can modify any farmer field, by giving them a new value"
+    },
+    "addfarmer":{
+      "title":"Create a farmer",
+      "description":"To create a new farmer, please fill in the below fields"
+    },
+    "peachcrops":{
+      "title":"Peach crops"
+    },
+    "addpeachcrop":{
+      "title":"Add peach crop",
+      "description":"To create a new peach crop, please fill in the below fields"
+    },
+    "editpeachcrop":{
+      "title":"Edit peach crop",
+      "description":"You can modify any peach crop field, by giving them a new value"
+    },
+    "olivescrops":{
+      "title":"Olives crops"
+    },
+    "addolivescrop":{
+      "title":"Add olives crop",
+      "description":"To create a new olives crop, please fill in the below fields"
+    },
+    "editolivescrop":{
+      "title":"Edit olives crop",
+      "description":"You can modify any olives crop field, by giving them a new value"
+    },
+    "almondcrops":{
+      "title":"Almond crops"
+    },
+    "addalmondcrop":{
+      "title":"Create almond crop",
+      "description":"To create a new almond crop, please fill in the below fields"
+    },
+    "editalmondcrop":{
+      "title":"Edit almond crop",
+      "description":"You can modify any almond crop field, by giving them a new value"
+    },
+    "expenses":{
+      "title":"Expenses"
+    },
+    "addexpense":{
+      "title":"Create an expense",
+      "description":"To create a new expense, please fill in the below fields"
+    },
+    "editexpense":{
+      "title":"Edit expense",
+      "description":"You can modify any expense field, by giving them a new value"
+    },
+    "expensetypes":{
+      "title":"Expense types"
+    },
+    "addexpensetype":{
+      "title":"Create an expense type",
+      "description":"To create a new expense type, please fill in the below fields"
+    },
+    "editexpensetype":{
+      "title":"Edit expense type",
+      "description":"You can modify expense type field, by giving it a new value"
+    },
+    "outgoings":{
+      "title":"Outgoings"
+    },
+    "addoutgoing":{
+      "title":"Create an outgoing",
+      "description":"To create a new outgoing, please fill in the below fields"
+    },
+    "editoutgoing":{
+      "title":"Edit outgoing",
+      "description":"You can modify any outgoing fields, by giving them a new value"
+    },
+    "parcels":{
+      "title":"Parcels"
+    },
+    "addparcel":{
+      "title":"Create a parcel",
+      "description":"To create a new parcel, please fill in the below field"
+    },
+    "editparcel":{
+      "title":"Edit parcel",
+      "description":"You can modify the parcel field, by giving it a new value"
+    },
+    "calibers":{
+      "title":"Calibers"
+    },
+    "addcaliber":{
+      "title":"Create a caliber",
+      "description":"To create a new caliber, please fill in the below field"
+    },
+    "editcaliber":{
+      "title":"Edit caliber",
+      "description":"You can modify the caliber field, by giving it a new value"
+    },
+    "rootstocks":{
+      "title":"Rootstocks"
+    },
+    "addrootstock":{
+      "title":"Create a rootstock",
+      "description":"To create a new rootstock, please fill in the below field"
+    },
+    "editrootstock":{
+      "title":"Edit rootstock",
+      "description":"You can modify the rootstock field, by giving it a new value"
+    },
+    "varieties":{
+      "title":"Varieties"
+    },
+    "addvariety":{
+      "title":"Create a variety",
+      "description":"To create a new variety, please fill in the below field"
+    },
+    "editvariety":{
+      "title":"Edit variety",
+      "description":"You can modify the variety field, by giving it a new value"
+    }
+  },
+  "forms":{
+    "fullname":"Full name",
+    "price":"Price",
+    "cropboxesnumber":"Number of boxes",
+    "cropparcel":"Crop parcel",
+    "cropvariety":"Crop variety",
+    "croprootstock":"Crop root stock",
+    "cropcaliber":"Crop Caliber",
+    "cropexpenseprice":"Crop expense price",
+    "caliber":"Caliber",
+    "parcel":"Parcel",
+    "rootstock":"Rootstock",
+    "variety":"Variety",
+    "roottype":"Root type",
+    "peach":"Peach",
+    "olives":"Olives",
+    "almond":"Almond",
+    "relatedtofarmers":"Related to farmers",
+    "expenselabel":"Expense Label",
+    "expensetype":"Expense Type",
+    "expensemeasureunit":"Expense measure unit",
+    "outgoinglabel":"Outgoing label",
+    "outgoingtype":"Outgoing type",
+    "outgoingmeasureunit":"Measure unit",
+    "quantity":"Quantity"
+  },
+  "tables":{
+    "farmers":{
+      "title":"Farmers",
+      "farmerid":"Farmer ID",
+      "fullname":"Full name",
+      "price":"Price",
+      "relatedtofarmer":"Related to farmer",
+      "createdate":"Created at"
+    },
+    "crops":{
+      "title":"Crops",
+      "id":"Crop ID",
+      "parcel":"Parcel",
+      "variety":"Variety",
+      "rootstock":"Rootstock",
+      "caliber":"Caliber",
+      "boxesnumber":"NO of boxes",
+      "expenseprice":"Expense price"
+    },
+    "expenses":{
+      "title":"Expenses",
+      "id":"Expense ID",
+      "type":"Type",
+      "label":"Label",
+      "unit":"Measure Unit",
+      "price":"Price",
+      "date":"Created at"
+    },
+    "expensetypes":{
+      "title":"Expense types",
+      "id":"Expense type ID",
+      "expensetype":"Type",
+      "date":"Created At"
+    },
+    "outgoings":{
+      "title":"Outgoings",
+      "id":"Outgoing ID",
+      "label":"Label",
+      "type":"Type",
+      "quantity":"Quantity",
+      "unit":"Measure Unit",
+      "price":"Price",
+      "date":"Created at"
+    },
+    "calibers":{
+      "title":"Calibers",
+      "id":"Caliber ID",
+      "caliber":"Caliber"
+    },
+    "parcels":{
+      "title":"Parcels",
+      "id":"Parcel ID",
+      "parcel":"Parcel"
+    },
+    "rootstocks":{
+      "title":"Rootstocks",
+      "id":"Rootstock ID",
+      "rootstock":"Rootstock"
+    },
+    "varieties":{
+      "title":"Varieties",
+      "id":"Variety ID",
+      "variety":"Variety",
+      "type":"Root type"
+    }
+  },
+  "stats":{
+    "farmersnumber":"Number of farmers",
+    "dailycrops":"Daily crops",
+    "totalexpenses":"Total expenses",
+    "previousperiod":"From previous period",
+    "cropsstats":"Crops Statistics",
+    "peachcrops":"Peach crops",
+    "olivescrops":"Olives crops",
+    "almondcrops":"Almond crops"
+  }
+}
