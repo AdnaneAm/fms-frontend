@@ -15,6 +15,9 @@ export default {
       title = typeof title === "function" ? title(this.$store) : title;
       return title ? `${title} | ${appConfig.title}` : appConfig.title;
     }
+  },
+  created(){
+    this.$store.dispatch('auth/setLoggedInUser');
   }
 };
 </script>

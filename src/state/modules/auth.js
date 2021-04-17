@@ -1,5 +1,4 @@
-import { getFirebaseBackend } from '../../helpers/firebase/authUtils'
-
+import axios from 'axios';
 export const state = {
     currentUser: sessionStorage.getItem('authUser'),
 }
@@ -22,65 +21,58 @@ export const actions = {
     // This is automatically run in `src/state/store.js` when the app
     // starts, along with any other actions named `init` in other modules.
     // eslint-disable-next-line no-unused-vars
-    init({ state, dispatch }) {
+    init({ dispatch }) {
         dispatch('validate')
     },
 
     // Logs in the current user.
-    logIn({ commit, dispatch, getters }, { email, password } = {}) {
-        if (getters.loggedIn) return dispatch('validate')
-
-        return getFirebaseBackend().loginUser(email, password).then((response) => {
-            const user = response
+    logIn({ commit }, user) {
+        return axios.post(process.env.VUE_APP_API_BASE_URL+'auth/login',user).then((response) => {
+            const user = response.data;
+            localStorage.setItem('auth-token',JSON.stringify(user.tokens.access.token));
+            localStorage.setItem('refresh-token',JSON.stringify(user.tokens.refresh.token));
             commit('SET_CURRENT_USER', user)
             return user
-        });
+        })
     },
-
     // Logs out the current user.
     logOut({ commit }) {
         // eslint-disable-next-line no-unused-vars
         commit('SET_CURRENT_USER', null)
-        return new Promise((resolve, reject) => {
-            // eslint-disable-next-line no-unused-vars
-            getFirebaseBackend().logout().then((response) => {
-                resolve(true);
-            }).catch((error) => {
-                reject(this._handleError(error));
-            })
+        return axios.post(process.env.VUE_APP_API_BASE_URL+'auth/logout',{
+            refreshToken: JSON.parse(localStorage.getItem('refresh-token'))
+        }).then(() => {
+            localStorage.removeItem('auth-token');
+            localStorage.removeItem('refresh-token');
+            localStorage.removeItem('auth.currentUser');
+            Promise.resolve(true);
+        }).catch((error) => {
+            Promise.reject(this._handleError(error));
         });
     },
 
     // register the user
-    register({ commit, dispatch, getters }, { email, password } = {}) {
-        if (getters.loggedIn) return dispatch('validate')
-
-        return getFirebaseBackend().registerUser(email, password).then((response) => {
-            const user = response
-            commit('SET_CURRENT_USER', user)
+    register({ commit }, user) {
+        return axios.post(process.env.VUE_APP_API_BASE_URL+'auth/register',user).then((response) => {
+            const user = response.data;
+            localStorage.setItem('auth-token',JSON.stringify(user.tokens.access.token));
+            localStorage.setItem('refresh-token',JSON.stringify(user.tokens.refresh.token));
+            commit('SET_CURRENT_USER', user);
             return user
         });
     },
-
-    // register the user
-    // eslint-disable-next-line no-unused-vars
-    resetPassword({ commit, dispatch, getters }, { email } = {}) {
-        if (getters.loggedIn) return dispatch('validate')
-
-        return getFirebaseBackend().forgetPassword(email).then((response) => {
-            const message = response.data
-            return message
-        });
-    },
-
     // Validates the current user's token and refreshes it
     // with new data from the API.
     // eslint-disable-next-line no-unused-vars
-    validate({ commit, state }) {
+    validate({ commit, state }){
         if (!state.currentUser) return Promise.resolve(null)
-        const user = getFirebaseBackend().getAuthenticatedUser();
+        const user = state.currentUser;
         commit('SET_CURRENT_USER', user)
         return user;
+    },
+    setLoggedInUser({commit}){
+        const user = localStorage.getItem('auth.currentUser');
+        commit('SET_CURRENT_USER',user);
     },
 }
 

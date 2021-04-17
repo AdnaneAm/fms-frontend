@@ -3,25 +3,24 @@ import { required, email } from "vuelidate/lib/validators";
 
 import {
   authMethods,
-  authFackMethods,
   notificationMethods
 } from "@/state/helpers";
 
 export default {
   data() {
     return {
-      email: "admin@themesdesign.in",
-      password: "123456",
+      email: "",
+      password: "",
       submitted: false
     };
   },
-  computed: {
+  created() {
+    document.body.classList.add("auth-body-bg");
+  },
+  computed:{
     notification() {
       return this.$store ? this.$store.state.notification : null;
     }
-  },
-  created() {
-    document.body.classList.add("auth-body-bg");
   },
   validations: {
     email: { required, email },
@@ -29,7 +28,6 @@ export default {
   },
   methods: {
     ...authMethods,
-    ...authFackMethods,
     ...notificationMethods,
     // Try to log the user in with the username
     // and password they provided.
@@ -37,41 +35,31 @@ export default {
       this.submitted = true;
       // stop here if form is invalid
       this.$v.$touch();
-
-      if (this.$v.$invalid) {
-        return;
-      } else {
-        if (process.env.VUE_APP_DEFAULT_AUTH === "firebase") {
-          this.tryingToLogIn = true;
-          // Reset the authError if it existed.
-          this.authError = null;
-          return (
-            this.logIn({
-              email: this.email,
-              password: this.password
-            })
-              // eslint-disable-next-line no-unused-vars
-              .then(token => {
-                this.tryingToLogIn = false;
-                this.isAuthError = false;
-                // Redirect to the originally requested page, or to the home page
-                this.$router.push(
-                  this.$route.query.redirectFrom || { name: "home" }
-                );
-              })
-              .catch(error => {
-                this.tryingToLogIn = false;
-                this.authError = error ? error : "";
-                this.isAuthError = true;
-              })
-          );
-        } else {
-          const { email, password } = this;
-          if (email && password) {
-            this.login({ email, password });
-          }
-        }
-      }
+      this.tryingToLogIn = true;
+      // Reset the authError if it existed.
+      this.authError = null;
+      return (
+        this.logIn({
+          email: this.email,
+          password: this.password
+        })
+          // eslint-disable-next-line no-unused-vars
+          .then(token => {
+            this.tryingToLogIn = false;
+            this.isAuthError = false;
+            // Redirect to the originally requested page, or to the home page
+            this.$router.push(
+              this.$route.query.redirectFrom || { name: "home" }
+            );
+          })
+          .catch(error => {
+            const err = error.response.data;
+            this.tryingToLogIn = false;
+            this.authError = err.message;
+            this.isAuthError = true;
+            this.$store.dispatch('notification/error', err.message, { root: true });
+          })
+      );
     }
   }
 };
@@ -103,7 +91,6 @@ export default {
                         <h4 class="font-size-18 mt-4">Welcome Back !</h4>
                         <p class="text-muted">Sign in to continue to Nazox.</p>
                       </div>
-
                       <b-alert
                         variant="danger"
                         class="mt-3"
@@ -183,10 +170,6 @@ export default {
                             to="/register"
                             class="font-weight-medium text-primary"
                           >Register</router-link>
-                        </p>
-                        <p>
-                          © 2020 Nazox. Crafted with
-                          <i class="mdi mdi-heart text-danger"></i> by Themesdesign
                         </p>
                       </div>
                     </div>

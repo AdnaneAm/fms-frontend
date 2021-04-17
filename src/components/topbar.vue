@@ -1,5 +1,4 @@
 <script>
-import simplebar from "simplebar-vue";
 import i18n from "../i18n";
 
 export default {
@@ -30,7 +29,6 @@ export default {
       return './src/assets/images/flags/french.jpg'
     }
   },
-  components: { simplebar },
   methods: {
     toggleMenu() {
       this.$parent.toggleMenu();
@@ -68,6 +66,11 @@ export default {
     setLanguage(locale) {
       i18n.locale = locale;
       this.current_language = i18n.locale;
+    },
+    logOut() {
+      this.$store.dispatch('auth/logOut').then(()=>{
+        this.$router.push({name:'login'});
+      })
     }
   }
 };
@@ -185,106 +188,6 @@ export default {
             <i class="ri-fullscreen-line"></i>
           </button>
         </div>
-
-        <b-dropdown
-          right
-          menu-class="dropdown-menu-lg p-0"
-          toggle-class="header-item noti-icon"
-          variant="black"
-        >
-          <template v-slot:button-content>
-            <i class="ri-notification-3-line"></i>
-            <span class="noti-dot"></span>
-          </template>
-          <div class="p-3">
-            <div class="row align-items-center">
-              <div class="col">
-                <h6 class="m-0">{{ $t('navbar.dropdown.notification.text')}}</h6>
-              </div>
-              <div class="col-auto">
-                <a href="#!" class="small">{{ $t('navbar.dropdown.notification.subtext')}}</a>
-              </div>
-            </div>
-          </div>
-          <simplebar style="max-height: 230px;">
-            <a href class="text-reset notification-item">
-              <div class="media">
-                <div class="avatar-xs mr-3">
-                  <span class="avatar-title bg-primary rounded-circle font-size-16">
-                    <i class="ri-shopping-cart-line"></i>
-                  </span>
-                </div>
-                <div class="media-body">
-                  <h6 class="mt-0 mb-1">{{ $t('navbar.dropdown.notification.order.title')}}</h6>
-                  <div class="font-size-12 text-muted">
-                    <p class="mb-1">{{ $t('navbar.dropdown.notification.order.text')}}</p>
-                    <p class="mb-0">
-                      <i class="mdi mdi-clock-outline"></i>
-                      {{ $t('navbar.dropdown.notification.order.time')}}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a href class="text-reset notification-item">
-              <div class="media">
-                <div class="media-body">
-                  <h6 class="mt-0 mb-1">{{ $t('navbar.dropdown.notification.james.title')}}</h6>
-                  <div class="font-size-12 text-muted">
-                    <p class="mb-1">{{ $t('navbar.dropdown.notification.james.text')}}</p>
-                    <p class="mb-0">
-                      <i class="mdi mdi-clock-outline"></i>
-                      {{ $t('navbar.dropdown.notification.james.time')}}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a href class="text-reset notification-item">
-              <div class="media">
-                <div class="avatar-xs mr-3">
-                  <span class="avatar-title bg-success rounded-circle font-size-16">
-                    <i class="ri-checkbox-circle-line"></i>
-                  </span>
-                </div>
-                <div class="media-body">
-                  <h6 class="mt-0 mb-1">{{ $t('navbar.dropdown.notification.item.title')}}</h6>
-                  <div class="font-size-12 text-muted">
-                    <p class="mb-1">{{ $t('navbar.dropdown.notification.item.text')}}</p>
-                    <p class="mb-0">
-                      <i class="mdi mdi-clock-outline"></i>
-                      {{ $t('navbar.dropdown.notification.item.time')}}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a href class="text-reset notification-item">
-              <div class="media">
-                <div class="media-body">
-                  <h6 class="mt-0 mb-1">{{ $t('navbar.dropdown.notification.salena.title')}}</h6>
-                  <div class="font-size-12 text-muted">
-                    <p class="mb-1">{{ $t('navbar.dropdown.notification.salena.text')}}</p>
-                    <p class="mb-0">
-                      <i class="mdi mdi-clock-outline"></i>
-                      {{ $t('navbar.dropdown.notification.salena.time')}}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </simplebar>
-          <div class="p-2 border-top">
-            <a
-              class="btn btn-sm btn-link font-size-14 btn-block text-center"
-              href="javascript:void(0)"
-            >
-              <i class="mdi mdi-arrow-right-circle mr-1"></i>
-              {{ $t('navbar.dropdown.notification.button')}}
-            </a>
-          </div>
-        </b-dropdown>
-
         <b-dropdown
           right
           variant="black"
@@ -296,25 +199,8 @@ export default {
             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
           </template>
           <!-- item-->
-          <a class="dropdown-item" href="#">
-            <i class="ri-user-line align-middle mr-1"></i>
-            {{ $t('navbar.dropdown.kevin.list.profile') }}
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="ri-wallet-2-line align-middle mr-1"></i>
-            {{ $t('navbar.dropdown.kevin.list.mywallet') }}
-          </a>
-          <a class="dropdown-item d-block" href="#">
-            <span class="badge badge-success float-right mt-1">11</span>
-            <i class="ri-settings-2-line align-middle mr-1"></i>
-            {{ $t('navbar.dropdown.kevin.list.settings') }}
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="ri-lock-unlock-line align-middle mr-1"></i>
-            {{ $t('navbar.dropdown.kevin.list.lockscreen') }}
-          </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item text-danger" href="/logout">
+          <a @click="logOut" class="dropdown-item text-danger">
             <i class="ri-shut-down-line align-middle mr-1 text-danger"></i>
             {{ $t('navbar.dropdown.kevin.list.logout') }}
           </a>

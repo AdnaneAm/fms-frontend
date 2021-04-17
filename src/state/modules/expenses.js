@@ -1,4 +1,5 @@
 import axios from 'axios'
+import authHeader from '../helpers/authHeader';
 export const state = {
   expenses:[],
 };
@@ -36,24 +37,32 @@ export const mutations = {
 
 export const actions = {
   getExpenses({commit}){
-    axios.get(process.env.VUE_APP_API_BASE_URL+'expenses/').then(expense => {
+    axios.get(process.env.VUE_APP_API_BASE_URL+'expenses/',{
+      headers:authHeader()
+    }).then(expense => {
       commit('setExpenses',expense.data.results);
     });
   },
   deleteExpenseByID({commit},id){
-    axios.delete(process.env.VUE_APP_API_BASE_URL+`expenses/${id}`).then(result => {
+    axios.delete(process.env.VUE_APP_API_BASE_URL+`expenses/${id}`,{
+      headers:authHeader()
+    }).then(result => {
       commit('deleteExpense', result.data);
     });
     
   },
   createExpense({commit},expense){
-    axios.post(process.env.VUE_APP_API_BASE_URL+`expenses/`, expense).then(expense => {
+    axios.post(process.env.VUE_APP_API_BASE_URL+`expenses/`, expense,{
+      headers:authHeader()
+    }).then(expense => {
       commit('pushExpense', expense.data);
     });
     
   },
   setExpense({commit},expense){
-    axios.patch(process.env.VUE_APP_API_BASE_URL+`expenses/${expense.id}`, expense).then(expense => {
+    axios.patch(process.env.VUE_APP_API_BASE_URL+`expenses/${expense.id}`, expense,{
+      headers:authHeader()
+    }).then(expense => {
       commit('setExpense', expense.data);
     });
     
