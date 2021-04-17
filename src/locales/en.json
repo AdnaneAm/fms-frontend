@@ -260,6 +260,7 @@
     }
   },
   "forms":{
+    "farmer": "Farmer",
     "fullname":"Full name",
     "price":"Price",
     "cropboxesnumber":"Number of boxes",
@@ -295,6 +296,7 @@
       "createdate":"Created at"
     },
     "crops":{
+      "farmer": "Farmer",
       "title":"Crops",
       "id":"Crop ID",
       "parcel":"Parcel",

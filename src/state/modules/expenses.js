@@ -1,16 +1,6 @@
 import axios from 'axios'
 export const state = {
-  expenses:[
-    {
-      id:'1',
-      expenseLabel:'Mohammed TOUHAMI',
-      expenseType:'farmer',
-      price:70,
-      expenseRelatedToFarmers:true,
-      expenseMesureUnit:'day',
-      createDate:new Date().toLocaleDateString()
-    }
-  ],
+  expenses:[],
 };
 
 export const getters = {
@@ -39,25 +29,33 @@ export const mutations = {
   },
   setExpense(state,payload){
     const index = state.expenses.findIndex(expense => expense.id == payload.id);
+    console.log(index)
     state.expenses[index] = payload
   }
 };
 
 export const actions = {
   getExpenses({commit}){
-    axios.get(process.env.VUE_APP_API_BASE_URL+'expenses/');
-    commit('setExpenses',[]);
+    axios.get(process.env.VUE_APP_API_BASE_URL+'expenses/').then(expense => {
+      commit('setExpenses',expense.data.results);
+    });
   },
   deleteExpenseByID({commit},id){
-    axios.delete(process.env.VUE_APP_API_BASE_URL+`expenses/${id}`);
-    commit('deleteExpense',id);
+    axios.delete(process.env.VUE_APP_API_BASE_URL+`expenses/${id}`).then(result => {
+      commit('deleteExpense', result.data);
+    });
+    
   },
   createExpense({commit},expense){
-    axios.post(process.env.VUE_APP_API_BASE_URL+`expenses/`);
-    commit('pushExpense',expense);
+    axios.post(process.env.VUE_APP_API_BASE_URL+`expenses/`, expense).then(expense => {
+      commit('pushExpense', expense.data);
+    });
+    
   },
   setExpense({commit},expense){
-    axios.put(process.env.VUE_APP_API_BASE_URL+`expenses/${expense.id}`);
-    commit('setExpense',expense);
+    axios.patch(process.env.VUE_APP_API_BASE_URL+`expenses/${expense.id}`, expense).then(expense => {
+      commit('setExpense', expense.data);
+    });
+    
   }
 };

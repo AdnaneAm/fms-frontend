@@ -35,10 +35,11 @@
       fields(){
         return [
           { key: "id", sortable: true, label: this.$t('tables.crops.id') },
+          { key: "cropFarmer", sortable: true, label:this.$t('tables.crops.farmer')},
           { key: "cropParcel", sortable: true, label:this.$t('tables.crops.parcel')},
           { key: "cropCaliber", sortable: true, label:this.$t('tables.crops.caliber')},
           { key: "cropVariety", sortable: false, label: this.$t('tables.crops.variety') },
-          { key: "cropRootstock", sortable: false, label: this.$t('tables.crops.rootstock') },
+          { key: "cropRootStock", sortable: false, label: this.$t('tables.crops.rootstock') },
           { key: "cropNumberOfBoxes", sortable: true, label: this.$t('tables.crops.boxesnumber') },
           { key: "cropExpensePrice", sortable: true, label: this.$t('tables.crops.expenseprice') },
           { key: "action" }

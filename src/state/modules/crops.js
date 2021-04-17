@@ -3,30 +3,33 @@ export const state = {
   crops:[
     {
       id:'1',
+      cropFarmer: 'wow',
       cropType:'peach',
       cropParcel:'parcel-01',
       cropVariety:'variety-01',
       cropNumberOfBoxes:5,
-      cropRootstock:'rootstock-01',
+      cropRootStock:'rootstock-01',
       cropCaliber:'calibre-01',
       cropExpensePrice:100,
     },
     {
       id:'2',
+      cropFarmer: 'wow',
       cropType:'olives',
       cropParcel:'parcel-02',
       cropVariety:'variety-02',
       cropNumberOfBoxes:10,
-      cropRootstock:'rootstock-02',
+      cropRootStock:'rootstock-02',
       cropExpensePrice:200,
     },
     {
       id:'3',
+      cropFarmer: 'wow',
       cropType:'almond',
       cropParcel:'parcel-03',
       cropVariety:'variety-02',
       cropNumberOfBoxes:12,
-      cropRootstock:'rootstock-03',
+      cropRootStock:'rootstock-03',
       cropExpensePrice:300,
     }
   ],
@@ -83,9 +86,21 @@ export const actions = {
       return Promise.resolve(res.data);
     })
   },
-  createCrop({commit},crop){
-    console.log('creating ...',crop);
-    commit('pushcrop',crop);
+  createCrop({commit},crop){ 
+    axios.get(process.env.VUE_APP_API_BASE_URL+'expenses?expenseLabel=' + crop.cropFarmer).then(res => {
+      return Promise.resolve(res.data.results[0]);
+    }).then(farmer => {
+      console.log(farmer)
+      if(farmer.expenseRelatedToFarmers) {
+        crop.cropExpensePrice = farmer.price * crop.cropNumberOfBoxes
+      } else {
+        crop.cropExpensePrice = 0
+      }
+      axios.post(process.env.VUE_APP_API_BASE_URL+'crops/', crop).then(crop => {
+        commit('pushcrop',crop.data);
+      })
+      
+    })
   },
   setCrop({commit},crop){
     commit('setcrop',crop);

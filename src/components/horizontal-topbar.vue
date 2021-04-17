@@ -470,58 +470,6 @@ export default {
           <template v-slot:button-content>
             <i class="ri-apps-2-line"></i>
           </template>
-          <div class="px-lg-2">
-            <div class="row no-gutters">
-              <div class="col">
-                <a class="dropdown-icon-item" href="javascript: void(0);">
-                  <img src="@/assets/images/brands/github.png" alt="Github" />
-                  <span>{{ $t("navbar.dropdown.site.list.github") }}</span>
-                </a>
-              </div>
-              <div class="col">
-                <a class="dropdown-icon-item" href="javascript: void(0);">
-                  <img
-                    src="@/assets/images/brands/bitbucket.png"
-                    alt="bitbucket"
-                  />
-                  <span>{{ $t("navbar.dropdown.site.list.github") }}</span>
-                </a>
-              </div>
-              <div class="col">
-                <a class="dropdown-icon-item" href="javascript: void(0);">
-                  <img
-                    src="@/assets/images/brands/dribbble.png"
-                    alt="dribbble"
-                  />
-                  <span>{{ $t("navbar.dropdown.site.list.dribbble") }}</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="row no-gutters">
-              <div class="col">
-                <a class="dropdown-icon-item" href="javascript: void(0);">
-                  <img src="@/assets/images/brands/dropbox.png" alt="dropbox" />
-                  <span>{{ $t("navbar.dropdown.site.list.dropbox") }}</span>
-                </a>
-              </div>
-              <div class="col">
-                <a class="dropdown-icon-item" href="javascript: void(0);">
-                  <img
-                    src="@/assets/images/brands/mail_chimp.png"
-                    alt="mail_chimp"
-                  />
-                  <span>{{ $t("navbar.dropdown.site.list.mailchimp") }}</span>
-                </a>
-              </div>
-              <div class="col">
-                <a class="dropdown-icon-item" href="javascript: void(0);">
-                  <img src="@/assets/images/brands/slack.png" alt="slack" />
-                  <span>{{ $t("navbar.dropdown.site.list.slack") }}</span>
-                </a>
-              </div>
-            </div>
-          </div>
         </b-dropdown>
 
         <div class="dropdown d-none d-lg-inline-block ml-1">
@@ -587,11 +535,6 @@ export default {
             </a>
             <a href class="text-reset notification-item">
               <div class="media">
-                <img
-                  src="@/assets/images/users/avatar-3.jpg"
-                  class="mr-3 rounded-circle avatar-xs"
-                  alt="user-pic"
-                />
                 <div class="media-body">
                   <h6 class="mt-0 mb-1">
                     {{ $t("navbar.dropdown.notification.james.title") }}
@@ -635,11 +578,6 @@ export default {
             </a>
             <a href class="text-reset notification-item">
               <div class="media">
-                <img
-                  src="@/assets/images/users/avatar-4.jpg"
-                  class="mr-3 rounded-circle avatar-xs"
-                  alt="user-pic"
-                />
                 <div class="media-body">
                   <h6 class="mt-0 mb-1">
                     {{ $t("navbar.dropdown.notification.salena.title") }}
@@ -675,11 +613,6 @@ export default {
           class="d-inline-block user-dropdown"
         >
           <template v-slot:button-content>
-            <img
-              class="rounded-circle header-profile-user"
-              src="@/assets/images/users/avatar-2.jpg"
-              alt="Header Avatar"
-            />
             <span class="d-none d-xl-inline-block ml-1">{{
               $t("navbar.dropdown.kevin.text")
             }}</span>

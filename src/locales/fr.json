@@ -259,6 +259,7 @@
       }
     },
     "forms":{
+      "farmer": "Agriculteur",
       "fullname":"Nom et prénom",
       "phone":"Numéro de téléphone",
       "cropboxesnumber":"Nombre de caisses",

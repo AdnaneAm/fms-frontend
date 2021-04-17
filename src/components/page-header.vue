@@ -1,6 +1,9 @@
 <script>
 export default {
   components: {},
+  created () {
+    this.$store.dispatch('expenses/getExpenses')
+  },
   props: {
     title: {
       type: String,

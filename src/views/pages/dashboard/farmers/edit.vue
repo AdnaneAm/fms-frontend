@@ -34,31 +34,38 @@
         ]
       },
       farmer(){
-        return this.$store.getters['farmers/getFarmerByID'](this.farmerID);
+        return this.$store.getters['expenses/getExpenseByID'](this.farmerID);
       },
       options(){
         return {
           title: this.$t('pages.editfarmer.title'),
           description: this.$t('pages.editfarmer.description'),
-          updateItemAction:'farmers/setFarmer',
+          updateItemAction:'expenses/setExpense',
           editItemButton:'pages.editfarmer.title',
           redirectRouteName:'farmers',
           initialItem:Object.assign({},this.farmer),
           formFields:[
             {
-              id:'crop-parcel',
-              key:'cropParcel',
-              label:'forms.cropparcel',
-              labelFor:'parcel',
-              type:'select',
-              options:[
-                {
-                  text:'Choose a parcel',
-                  value:null
-                },
-                ...this.parcels.map(parcel => parcel.parcel)
-              ]
+              id:'farmer-name',
+              key:'expenseLabel',
+              label:'forms.fullname',
+              labelFor:'full-name',
+              type:'text',
             },
+            {
+              id:'price',
+              key:'price',
+              label:'forms.price',
+              labelFor:'price',
+              type:'number',
+            },
+            {
+              id:'farm-expense',
+              key:'expenseRelatedToFarmers',
+              labelFor:'expense',
+              type:'check',
+              check_message:'forms.relatedtofarmers'
+            }
           ]
         }
       }
