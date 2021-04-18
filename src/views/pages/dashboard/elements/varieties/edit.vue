@@ -51,6 +51,22 @@
               label:'forms.variety',
               labelFor:'variety',
               type:'text',
+            },
+                        {
+              id:'root-type',
+              key:'rootType',
+              label:'forms.roottype',
+              labelFor:'root-type',
+              type:'select',
+              options:[
+                {
+                  text:'Select a root type',
+                  value:null
+                },
+                'Peach',
+                'Almond',
+                'Olives'
+              ]
             }
           ]
         }

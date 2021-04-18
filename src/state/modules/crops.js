@@ -44,17 +44,30 @@ export const actions = {
       return Promise.resolve(res.data);
     })
   },
-  createCrop({commit,rootGetters},crop){ 
+  createCrop({commit,rootGetters,dispatch},crop){
+    // initialise outgoing qty and mesure unit
+    let outgoingQuantity = 1,outgoingUnitOfMesure = 'jour';
     const {expenseRelatedToFarmers,price} = rootGetters['expenses/getExpenseByLabel'](crop.cropFarmer);
       if(expenseRelatedToFarmers) {
         crop.cropExpensePrice = price * crop.cropNumberOfBoxes
+        outgoingQuantity = crop.cropNumberOfBoxes;
+        outgoingUnitOfMesure = 'caisse';
       } else {
         crop.cropExpensePrice = 0
       }
       axios.post(process.env.VUE_APP_API_BASE_URL+'crops/', crop,{
         headers:authHeader()
-      }).then(crop => {
-        commit('pushcrop',crop.data);
+      }).then(res => {
+        commit('pushcrop',res.data);
+        // Create outgoing
+        const outgoing = {
+          outgoingLabel:crop.cropFarmer,
+          outgoingType:'farmer',
+          outgoingQuantity,
+          outgoingUnitOfMesure,
+          outgoingPrice:0,
+        }
+        dispatch('outgoings/createOutgoing',outgoing,{root:true});
       })
   },
   setCrop({commit,rootGetters},crop){

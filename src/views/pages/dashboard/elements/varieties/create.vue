@@ -69,11 +69,11 @@
                 },
                 {
                   text:this.$t('forms.olives'),
-                  value:'peach'
+                  value:'olives'
                 },
                 {
                   text:this.$t('forms.almond'),
-                  value:'peach'
+                  value:'almond'
                 }
               ]
             }

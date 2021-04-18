@@ -55,7 +55,7 @@
           createItemButton:'pages.addpeachcrop.title',
           redirectRouteName:'peach-crops',
           initialItem:{
-            
+            cropFarmer:'',
             cropType:'peach',
             cropParcel:'',
             cropVariety:'',

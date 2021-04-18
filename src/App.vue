@@ -17,6 +17,7 @@ export default {
     }
   },
   created(){
+    console.log('started');
     // Get data 
     this.$store.dispatch('crops/getCrops');
     this.$store.dispatch('parcels/getParcels');
@@ -25,6 +26,7 @@ export default {
     this.$store.dispatch('varieties/getVarieties');
     this.$store.dispatch('expensetypes/getExpensetypes');
     this.$store.dispatch('expenses/getExpenses');
+    this.$store.dispatch('outgoings/getOutgoings');
     // Set the logged in user from local storage in state
     this.$store.dispatch('auth/setLoggedInUser');
   }

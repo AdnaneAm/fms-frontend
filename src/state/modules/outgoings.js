@@ -1,16 +1,7 @@
 import axios from 'axios'
+import authHeader from '../helpers/authHeader'
 export const state = {
-  outgoings:[
-    {
-      id:'1',
-      outgoingLabel:'Mohammed TOUHAMI',
-      outgoingType:'farmer',
-      outgoingQuantity:'15',
-      outgoingUnitOfMesure:'caisse',
-      outgoingPrice:300,
-      createDate:new Date().toLocaleDateString()
-    }
-  ],
+  outgoings:[],
 };
 
 export const getters = {
@@ -39,22 +30,34 @@ export const mutations = {
 
 export const actions = {
   getOutgoings({commit}){
-    axios.get(process.env.VUE_APP_API_BASE_URL+'outgoings/');
-    commit('setOutgoings',[]);
-  },
-  deleteOutgoingByID({commit},id){
-    axios.delete(process.env.VUE_APP_API_BASE_URL+`outgoings/${id}`);
-    commit('deleteOutgoing',id);
+    axios.get(process.env.VUE_APP_API_BASE_URL+'outgoings/',{
+      headers:authHeader()
+    }).then(res => {
+      commit('setOutgoings',res.data.results);
+    });
   },
   createOutgoing({commit,rootGetters},outgoing){
-      calcOutgoingPrice(rootGetters,outgoing);
-      axios.post(process.env.VUE_APP_API_BASE_URL+'outgoings/');
-      commit('pushOutgoing',outgoing);
+      if(!outgoing.outgoingPrice) calcOutgoingPrice(rootGetters,outgoing);
+      axios.post(process.env.VUE_APP_API_BASE_URL+'outgoings/',outgoing,{
+        headers:authHeader()
+      }).then(res => {
+        commit('pushOutgoing',res.data);
+      });
   },
   updateOutgoing({commit,rootGetters},outgoing){
     calcOutgoingPrice(rootGetters,outgoing);
-    axios.put(process.env.VUE_APP_API_BASE_URL+`outgoings/${outgoing.id}`);
-    commit('setOutgoing',outgoing);
+    axios.put(process.env.VUE_APP_API_BASE_URL+`outgoings/${outgoing.id}`,{
+      headers:authHeader()
+    }).then(()=>{
+      commit('setOutgoing',outgoing);
+    });
+  },
+  deleteOutgoingByID({commit},id){
+    axios.delete(process.env.VUE_APP_API_BASE_URL+`outgoings/${id}`,{
+      headers:authHeader()
+    }).then( () => {
+      commit('deleteOutgoing',id);
+    });
   }
 };
 const calcOutgoingPrice = (rootGetters,outgoing) =>{
