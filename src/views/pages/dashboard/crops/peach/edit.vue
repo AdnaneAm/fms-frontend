@@ -18,7 +18,8 @@
     data() {
       return {
         title: 'pages.editpeachcrop.title',
-        cropID:this.$route.params.id
+        cropID:this.$route.params.id,
+        item:null,
       }
     },
     computed:{
@@ -58,7 +59,7 @@
           updateItemAction:'crops/setCrop',
           editItemButton:'pages.editpeachcrop.title',
           redirectRouteName:'peach-crops',
-          initialItem:Object.assign({},this.crop),
+          initialItem:this.item,
           formFields:[
             {
               id:'crop-farmer',
@@ -137,12 +138,20 @@
               labelFor:'boxes-num',
               type:'number',
             },
+            {
+              id:'create-date',
+              key:'createDate',
+              label:'forms.cropdate',
+              labelFor:'create-date',
+              type:'date',
+            },
           ]
         }
       }
     },
     created(){
-      console.log(this.options.initialItem);
+      this.item = Object.assign({},this.crop);
+      this.item.createDate = this.item.createDate.substr(0,10);
     }
   }
 </script>

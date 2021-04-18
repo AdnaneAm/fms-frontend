@@ -18,7 +18,8 @@
     data() {
       return {
         title: 'pages.editolivescrop.title',
-        cropID:this.$route.params.id
+        cropID:this.$route.params.id,
+        item:null
       }
     },
     computed:{
@@ -58,7 +59,7 @@
           updateItemAction:'crops/setCrop',
           editItemButton:'pages.editolivescrop.title',
           redirectRouteName:'olives-crops',
-          initialItem:Object.assign({},this.crop),
+          initialItem:this.item,
           formFields:[
             {
               id:'crop-farmer',
@@ -123,11 +124,20 @@
                 ...this.rootstocks.map(rootstock => rootstock.rootStock)
               ]
             },
+            {
+              id:'create-date',
+              key:'createDate',
+              label:'forms.cropdate',
+              labelFor:'create-date',
+              type:'date',
+            },
           ]
         }
       }
     },
     created(){
+      this.item = Object.assign({},this.crop);
+      this.item.createDate = this.item.createDate.substr(0,10);
     }
   }
 </script>

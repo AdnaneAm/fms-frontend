@@ -254,7 +254,8 @@
       "outgoinglabel":"Etiquette de charge",
       "outgoingtype":"Type de charge",
       "outgoingmeasureunit":"Unité de mesure",
-      "quantity":"Quantité"
+      "quantity":"Quantité",
+      "cropdate":"Récolté le"
     },
     "tables":{
       "farmers":{

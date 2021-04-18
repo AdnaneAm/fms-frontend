@@ -262,7 +262,8 @@
     "outgoinglabel":"Outgoing label",
     "outgoingtype":"Outgoing type",
     "outgoingmeasureunit":"Measure unit",
-    "quantity":"Quantity"
+    "quantity":"Quantity",
+    "cropdate":"Harvested on"
   },
   "tables":{
     "farmers":{

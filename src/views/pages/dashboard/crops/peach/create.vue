@@ -142,6 +142,13 @@
               labelFor:'boxes-num',
               type:'number',
             },
+            {
+              id:'create-date',
+              key:'createDate',
+              label:'forms.cropdate',
+              labelFor:'create-date',
+              type:'date',
+            },
           ]
         }
       }

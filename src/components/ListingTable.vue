@@ -53,6 +53,9 @@
               <i class="mdi mdi-trash-can font-size-18"></i>
             </a>
           </template>
+          <template #cell(createDate)="data">
+            {{data.value.substr(0,10)}}
+          </template>
         </b-table>
       </div>
       <div class="row">
