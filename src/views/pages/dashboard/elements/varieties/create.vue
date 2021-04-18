@@ -40,7 +40,7 @@
           createItemButton:'pages.addvariety.title',
           redirectRouteName:'varieties',
           initialItem:{
-            id:Math.floor(Math.random()*10000),
+            
             variety:'',
             rootType:'',
           },

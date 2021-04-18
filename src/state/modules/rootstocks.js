@@ -1,18 +1,7 @@
 import axios from 'axios'
+import authHeader from '../helpers/authHeader'
 export const state = {
   rootstocks:[
-    {
-      id:'R1',
-      rootstock:'rootstock-01'
-    },
-    {
-      id:'R2',
-      rootstock:'rootstock-02'
-    },
-    {
-      id:'R3',
-      rootstock:'rootstock-03'
-    }
   ],
 };
 
@@ -42,18 +31,31 @@ export const mutations = {
 
 export const actions = {
   getRootstocks({commit}){
-    return axios.get(process.env.VUE_APP_API_BASE_URL+'rootstocks/').then(res => {
-      commit('setRootstocks',res.data);
-      return Promise.resolve(res.data);
+    return axios.get(process.env.VUE_APP_API_BASE_URL+'rootstocks/',{
+      headers:authHeader()
+    }).then(res => {
+      commit('setRootstocks',res.data.results);
     })
   },
   createRootstock({commit},rootstock){
-    commit('pushRootstock',rootstock);
+    return axios.post(process.env.VUE_APP_API_BASE_URL+'rootstocks/', rootstock,{
+      headers:authHeader()
+    }).then(res => {
+      commit('pushRootstock',res.data);
+    })
   },
   setRootstock({commit},rootstock){
-    commit('setRootstock',rootstock);
+    return axios.patch(process.env.VUE_APP_API_BASE_URL+`rootstocks/${rootstock.id}`,{
+      headers:authHeader()
+    }).then(() => {
+      commit('setRootstock',rootstock);
+    })
   },
   deleteRootstockByID({commit},id){
-    commit('deleteRootstock',id);
+    return axios.delete(process.env.VUE_APP_API_BASE_URL+`rootstocks/${id}`,{
+      headers:authHeader()
+    }).then(() => {
+      commit('deleteRootstock',id);
+    })
   }
 };

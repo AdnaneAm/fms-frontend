@@ -40,13 +40,12 @@
           createItemButton:'pages.addrootstock.title',
           redirectRouteName:'rootstocks',
           initialItem:{
-            id:Math.floor(Math.random()*10000),
-            rootstock:'',
+            rootStock:'',
           },
           formFields:[
             {
               id:'rootstock',
-              key:'rootstock',
+              key:'rootStock',
               label:'forms.rootstock',
               labelFor:'rootstock',
               type:'text',

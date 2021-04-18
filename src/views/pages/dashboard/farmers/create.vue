@@ -41,13 +41,11 @@
           createItemButton:'pages.addfarmer.title',
           redirectRouteName:'farmers',
           initialItem:{
-            id:Math.floor(Math.random()*10000),
             expenseLabel:'',
             expenseType:'farmer',
             price:'',
             expenseRelatedToFarmers:false,
-            expenseMesureUnit:'',
-            createDate:new Date().toLocaleDateString()
+            expenseMesureUnit:''
           },
           formFields:[
             {

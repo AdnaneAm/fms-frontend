@@ -1,22 +1,7 @@
 import axios from 'axios'
+import authHeader from '../helpers/authHeader'
 export const state = {
   calibers:[
-    {
-      id:'C1',
-      caliber:'caliber-01'
-    },
-    {
-      id:'C2',
-      caliber:'caliber-02'
-    },
-    {
-      id:'C3',
-      caliber:'caliber-03'
-    },
-    {
-      id:'C4',
-      caliber:'caliber-04'
-    },
   ],
 };
 
@@ -46,18 +31,31 @@ export const mutations = {
 
 export const actions = {
   getCalibers({commit}){
-    return axios.get(process.env.VUE_APP_API_BASE_URL+'calibers/').then(res => {
-      commit('setCalibers',res.data);
-      return Promise.resolve(res.data);
+    return axios.get(process.env.VUE_APP_API_BASE_URL+'calibers/',{
+      headers:authHeader()
+    }).then(res => {
+      commit('setCalibers',res.data.results);
     })
   },
   deleteCaliberByID({commit},id){
-    commit('deleteCaliber',id);
+    return axios.delete(process.env.VUE_APP_API_BASE_URL+`calibers/${id}`,{
+      headers:authHeader()
+    }).then(() => {
+      commit('deleteCaliber',id);
+    })
   },
   createCaliber({commit},caliber){
-    commit('pushCaliber',caliber);
+    return axios.post(process.env.VUE_APP_API_BASE_URL+`calibers/`,caliber,{
+      headers:authHeader()
+    }).then(() => {
+      commit('pushCaliber',caliber);
+    })
   },
   setCaliber({commit},caliber){
-    commit('setCaliber',caliber);
+    return axios.patch(process.env.VUE_APP_API_BASE_URL+`calibers/${caliber.id}`,{
+      headers:authHeader()
+    }).then(() => {
+      commit('setCaliber',caliber);
+    })
   }
 };

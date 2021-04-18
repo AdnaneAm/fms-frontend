@@ -34,7 +34,6 @@
       },
       fields(){
         return [
-          { key: "id", sortable: true, label: this.$t('tables.expenses.id') },
           { key: "expenseType", sortable: false, label:this.$t('tables.expenses.type')},
           { key: "expenseLabel", sortable: true, label:this.$t('tables.expenses.label')},
           { key: "price", sortable: true, label: this.$t('tables.expenses.price') },
@@ -53,6 +52,9 @@
       expenses(){
         return this.$store.getters['expenses/getExpenses']
       }
+    },
+    created(){
+      this.$store.dispatch('expenses/getExpenses');
     }
   }
 </script>

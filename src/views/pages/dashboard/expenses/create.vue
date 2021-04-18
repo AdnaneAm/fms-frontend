@@ -43,13 +43,11 @@
           createItemButton:'pages.addexpense.title',
           redirectRouteName:'expenses',
           initialItem:{
-            id:Math.floor(Math.random()*10000),
             expenseLabel:'',
             expenseType:'',
             price:'',
             expenseRelatedToFarmers:0,
             expenseMesureUnit:'',
-            createDate:new Date().toLocaleDateString(),
           },
           formFields:[
             {

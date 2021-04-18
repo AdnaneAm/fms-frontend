@@ -1,18 +1,7 @@
 import axios from 'axios'
+import authHeader from '../helpers/authHeader'
 export const state = {
   parcels:[
-    {
-      id:'P1',
-      parcel:'parcel-01'
-    },
-    {
-      id:'P2',
-      parcel:'parcel-02'
-    },
-    {
-      id:'P3',
-      parcel:'parcel-03'
-    },
   ],
 };
 
@@ -42,18 +31,31 @@ export const mutations = {
 
 export const actions = {
   getParcels({commit}){
-    return axios.get(process.env.VUE_APP_API_BASE_URL+'parcels/').then(res => {
-      commit('setParcels',res.data);
-      return Promise.resolve(res.data);
+    return axios.get(process.env.VUE_APP_API_BASE_URL+'parcels/',{
+      headers:authHeader()
+    }).then(res => {
+      commit('setParcels',res.data.results);
     })
   },
   createParcel({commit},parcel){
-    commit('pushParcel',parcel);
+    return axios.post(process.env.VUE_APP_API_BASE_URL+'parcels/',parcel,{
+      headers:authHeader()
+    }).then(res => {
+      commit('pushParcel',res.data);
+    })
   },
   setParcel({commit},parcel){
-    commit('setParcel',parcel);
+    return axios.patch(process.env.VUE_APP_API_BASE_URL+`parcels/${parcel.id}`,{
+      headers:authHeader()
+    }).then(() => {
+      commit('setParcel',parcel);
+    })
   },
   deleteParcelByID({commit},id){
-    commit('deleteParcel',id);
+    return axios.delete(process.env.VUE_APP_API_BASE_URL+`parcels/${id}`,{
+      headers:authHeader()
+    }).then(() => {
+      commit('deleteParcel',id);
+    })
   }
 };

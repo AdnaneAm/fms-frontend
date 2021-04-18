@@ -34,9 +34,9 @@
       },
       fields(){
         return [
-          { key: "id", sortable: true, label: this.$t('tables.varieties.id') },
           { key: "variety", sortable: true, label:this.$t('tables.varieties.variety')},
           { key: "rootType", sortable: true, label:this.$t('tables.varieties.type')},
+          { key: "createDate", sortable: true, label:this.$t('tables.expensetypes.date')},
           { key: "action" }
         ]
       },
@@ -50,6 +50,9 @@
       varieties(){
         return this.$store.getters['varieties/getVarieties']
       }
+    },
+    created(){
+      this.$store.dispatch('varieties/getVarieties');
     }
   }
 </script>

@@ -34,7 +34,6 @@
       },
       fields(){
         return [
-          { key: "id", sortable: true, label: this.$t('tables.outgoings.id') },
           { key: "outgoingLabel", sortable: true, label:this.$t('tables.outgoings.label')},
           { key: "outgoingType", sortable: false, label:this.$t('tables.outgoings.type')},
           { key: "outgoingQuantity", sortable: true, label: this.$t('tables.outgoings.quantity') },
@@ -54,6 +53,9 @@
       outgoings(){
         return this.$store.getters['outgoings/getOutgoings']
       }
+    },
+    created(){
+      this.$store.dispatch('outgoings/getOutgoings');
     }
   }
 </script>

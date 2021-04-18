@@ -6,7 +6,10 @@ export const state = {
 
 export const getters = {
   getExpenses(state){
-    return state.expenses;
+    return state.expenses.map(expense => {
+      expense.createDate = expense.createDate.substr(0,10);
+      return expense;
+    });
   },
   getExpensesByType: (state) => (type) => {
     return state.expenses.filter(expense => expense.expenseType == type);
@@ -46,12 +49,15 @@ export const actions = {
   deleteExpenseByID({commit},id){
     axios.delete(process.env.VUE_APP_API_BASE_URL+`expenses/${id}`,{
       headers:authHeader()
-    }).then(result => {
-      commit('deleteExpense', result.data);
+    }).then(() => {
+      commit('deleteExpense', id);
     });
-    
   },
   createExpense({commit},expense){
+    expense.expenseType == 'farmer' ?
+      (expense.expenseRelatedToFarmers == true ? 
+        expense.expenseMesureUnit = 'caisse'
+        : expense.expenseMesureUnit = 'jour'):'';
     axios.post(process.env.VUE_APP_API_BASE_URL+`expenses/`, expense,{
       headers:authHeader()
     }).then(expense => {

@@ -34,8 +34,8 @@
       },
       fields(){
         return [
-          { key: "id", sortable: true, label: this.$t('tables.rootstocks.id') },
-          { key: "rootstock", sortable: true, label:this.$t('tables.rootstocks.rootstock')},
+          { key: "rootStock", sortable: true, label:this.$t('tables.rootstocks.rootstock')},
+          { key: "createDate", sortable: true, label:this.$t('tables.expensetypes.date')},
           { key: "action" }
         ]
       },
@@ -49,6 +49,9 @@
       rootstocks(){
         return this.$store.getters['rootstocks/getRootstocks']
       }
+    },
+    created(){
+      this.$store.dispatch('rootstocks/getRootstocks');
     }
   }
 </script>

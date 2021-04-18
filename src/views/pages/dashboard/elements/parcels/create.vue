@@ -40,7 +40,7 @@
           createItemButton:'pages.addparcel.title',
           redirectRouteName:'parcels',
           initialItem:{
-            id:Math.floor(Math.random()*10000),
+            
             parcel:'',
           },
           formFields:[

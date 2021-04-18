@@ -34,12 +34,13 @@
       },
       fields(){
         return [
-          { key: "id", sortable: true, label: this.$t('tables.crops.id') },
+          { key: "cropFarmer", sortable: true, label:this.$t('tables.crops.farmer')},
           { key: "cropParcel", sortable: true, label:this.$t('tables.crops.parcel')},
           { key: "cropVariety", sortable: false, label: this.$t('tables.crops.variety') },
-          { key: "cropRootstock", sortable: false, label: this.$t('tables.crops.rootstock') },
+          { key: "cropRootStock", sortable: false, label: this.$t('tables.crops.rootstock') },
           { key: "cropNumberOfBoxes", sortable: false, label: this.$t('tables.crops.boxesnumber') },
           { key: "cropExpensePrice", sortable: true, label: this.$t('tables.crops.expenseprice') },
+          { key: "createDate", sortable: true, label:this.$t('tables.expensetypes.date')},
           { key: "action" }
         ]
       },
@@ -52,7 +53,10 @@
       },
       crops(){
         return this.$store.getters['crops/getCropsByType']('olives')
-      }
+      },
+    },
+    created(){
+      this.$store.dispatch('crops/getCrops');
     }
   }
 </script>

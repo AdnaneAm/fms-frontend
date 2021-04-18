@@ -47,7 +47,7 @@
           formFields:[
             {
               id:'rootstock',
-              key:'rootstock',
+              key:'rootStock',
               label:'forms.rootstock',
               labelFor:'rootstock',
               type:'text',

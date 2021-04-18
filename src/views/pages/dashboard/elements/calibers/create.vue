@@ -40,7 +40,7 @@
           createItemButton:'pages.addcaliber.title',
           redirectRouteName:'calibers',
           initialItem:{
-            id:Math.floor(Math.random()*10000),
+            
             caliber:'',
           },
           formFields:[

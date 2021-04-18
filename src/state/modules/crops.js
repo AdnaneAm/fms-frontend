@@ -1,37 +1,7 @@
 import axios from 'axios'
+import authHeader from '../helpers/authHeader'
 export const state = {
   crops:[
-    {
-      id:'1',
-      cropFarmer: 'wow',
-      cropType:'peach',
-      cropParcel:'parcel-01',
-      cropVariety:'variety-01',
-      cropNumberOfBoxes:5,
-      cropRootStock:'rootstock-01',
-      cropCaliber:'calibre-01',
-      cropExpensePrice:100,
-    },
-    {
-      id:'2',
-      cropFarmer: 'wow',
-      cropType:'olives',
-      cropParcel:'parcel-02',
-      cropVariety:'variety-02',
-      cropNumberOfBoxes:10,
-      cropRootStock:'rootstock-02',
-      cropExpensePrice:200,
-    },
-    {
-      id:'3',
-      cropFarmer: 'wow',
-      cropType:'almond',
-      cropParcel:'parcel-03',
-      cropVariety:'variety-02',
-      cropNumberOfBoxes:12,
-      cropRootStock:'rootstock-03',
-      cropExpensePrice:300,
-    }
   ],
 };
 
@@ -45,19 +15,7 @@ export const getters = {
 }
 export const mutations = {
   setcrops(state,payload){
-    switch(payload.type){
-      case 'peach':
-        state.peach = payload.data;
-        break;
-      case 'olives':
-        state.olives = payload.data;
-        break;
-      case 'almond':
-        state.almond = payload.data;
-        break;
-      default:
-        return;
-    }
+    state.crops = payload;
   },
   setcrop(state,payload){
     const index = state.crops.findIndex(crop => crop.id == payload.id);
@@ -72,40 +30,51 @@ export const mutations = {
 };
 
 export const actions = {
-  getcrops({commit},type){
-    return axios.get(process.env.VUE_APP_API_BASE_URL+'crops/'+type).then(res => {
-      commit('setcrops',{
-        type:type,
-        data:res.data
-      });
-      return Promise.resolve(res.data);
+  getCrops({commit}){
+    return axios.get(process.env.VUE_APP_API_BASE_URL+'crops/',{
+      headers:authHeader()
+    }).then(res => {
+      commit('setcrops',res.data.results);
     })
   },
   getCropByID(context,id){
-    return axios.get(process.env.VUE_APP_API_BASE_URL+'crops/'+id).then(res => {
+    return axios.get(process.env.VUE_APP_API_BASE_URL+'crops/'+id,{
+      headers:authHeader()
+    }).then(res => {
       return Promise.resolve(res.data);
     })
   },
-  createCrop({commit},crop){ 
-    axios.get(process.env.VUE_APP_API_BASE_URL+'expenses?expenseLabel=' + crop.cropFarmer).then(res => {
-      return Promise.resolve(res.data.results[0]);
-    }).then(farmer => {
-      console.log(farmer)
-      if(farmer.expenseRelatedToFarmers) {
-        crop.cropExpensePrice = farmer.price * crop.cropNumberOfBoxes
+  createCrop({commit,rootGetters},crop){ 
+    const {expenseRelatedToFarmers,price} = rootGetters['expenses/getExpenseByLabel'](crop.cropFarmer);
+      if(expenseRelatedToFarmers) {
+        crop.cropExpensePrice = price * crop.cropNumberOfBoxes
       } else {
         crop.cropExpensePrice = 0
       }
-      axios.post(process.env.VUE_APP_API_BASE_URL+'crops/', crop).then(crop => {
+      axios.post(process.env.VUE_APP_API_BASE_URL+'crops/', crop,{
+        headers:authHeader()
+      }).then(crop => {
         commit('pushcrop',crop.data);
       })
-      
+  },
+  setCrop({commit,rootGetters},crop){
+    const {expenseRelatedToFarmers,price} = rootGetters['expenses/getExpenseByLabel'](crop.cropFarmer);
+    if(expenseRelatedToFarmers) {
+      crop.cropExpensePrice = price * crop.cropNumberOfBoxes
+    } else {
+      crop.cropExpensePrice = 0
+    }
+    axios.patch(process.env.VUE_APP_API_BASE_URL+`crops/${crop.id}`,crop,{
+      headers:authHeader()
+    }).then(() => {
+      commit('setcrop',crop);
     })
   },
-  setCrop({commit},crop){
-    commit('setcrop',crop);
-  },
   deleteCropByID({commit},id){
-    commit('deleteCrop',id);
+    return axios.delete(process.env.VUE_APP_API_BASE_URL+`crops/${id}`,{
+      headers:authHeader()
+    }).then(() => {
+      commit('deleteCrop',id);
+    })
   }
 };

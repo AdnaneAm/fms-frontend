@@ -33,6 +33,9 @@
           }
         ]
       },
+      farmers(){
+        return this.$store.getters['expenses/getExpensesByType']('farmer');
+      },
       parcels(){
         return this.$store.getters['parcels/getParcels'];
       },
@@ -57,6 +60,20 @@
           redirectRouteName:'almond-crops',
           initialItem:Object.assign({},this.crop),
           formFields:[
+            {
+              id:'crop-farmer',
+              key:'cropFarmer',
+              label:'forms.farmer',
+              labelFor:'farmer',
+              type:'select',
+              options:[
+                {
+                  text:'Choose a farmer',
+                  value:null
+                },
+                ...this.farmers.map(farmer => farmer.expenseLabel)
+              ]
+            },
             {
               id:'crop-parcel',
               key:'cropParcel',
@@ -94,7 +111,7 @@
             },
             {
               id:'crop-rootstock',
-              key:'cropRootstock',
+              key:'cropRootStock',
               label:'forms.croprootstock',
               labelFor:'root-stock',
               type:'select',
@@ -103,16 +120,9 @@
                   text:'Choose a rootstock',
                   value:null
                 },
-                ...this.rootstocks.map(rootstock => rootstock.rootstock)
+                ...this.rootstocks.map(rootstock => rootstock.rootStock)
               ]
-            },
-            {
-              id:'crop-expense-price',
-              key:'cropExpensePrice',
-              label:'forms.cropexpenseprice',
-              labelFor:'expense-price',
-              type:'number',
-            },
+            }
           ]
         }
       }

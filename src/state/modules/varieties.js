@@ -1,36 +1,7 @@
 import axios from 'axios'
+import authHeader from '../helpers/authHeader'
 export const state = {
   varieties:[
-    {
-      id:'V1',
-      variety:'variety-01',
-      rootType:'peach',
-    },
-    {
-      id:'V2',
-      variety:'variety-02',
-      rootType:'peach',
-    },
-    {
-      id:'V3',
-      variety:'variety-01',
-      rootType:'olives',
-    },
-    {
-      id:'V4',
-      variety:'variety-02',
-      rootType:'olives',
-    },
-    {
-      id:'V5',
-      variety:'variety-01',
-      rootType:'almond',
-    },
-    {
-      id:'V6',
-      variety:'variety-02',
-      rootType:'almond',
-    }
   ],
 };
 
@@ -63,18 +34,31 @@ export const mutations = {
 
 export const actions = {
   getVarieties({commit}){
-    return axios.get(process.env.VUE_APP_API_BASE_URL+'varieties/').then(res => {
-      commit('setVarieties',res.data);
-      return Promise.resolve(res.data);
+    return axios.get(process.env.VUE_APP_API_BASE_URL+'varieties/',{
+      headers:authHeader()
+    }).then(res => {
+      commit('setVarieties',res.data.results);
     })
   },
   createVariety({commit},variety){
-    commit('pushVariety',variety);
+    return axios.post(process.env.VUE_APP_API_BASE_URL+'varieties/',variety,{
+      headers:authHeader()
+    }).then(res => {
+      commit('pushVariety',res.data);
+    })
   },
   setVarietyByID({commit},variety){
-    commit('setVariety',variety);
+    return axios.patch(process.env.VUE_APP_API_BASE_URL+`varieties/${variety.id}`,{
+      headers:authHeader()
+    }).then(() => {
+      commit('setVariety',variety);
+    })
   },
   deleteVarietyByID({commit},id){
-    commit('deleteVariety',id)
+    return axios.delete(process.env.VUE_APP_API_BASE_URL+`varieties/${id}`,{
+      headers:authHeader()
+    }).then(() => {
+      commit('deleteVariety',id)
+    })
   }
 };

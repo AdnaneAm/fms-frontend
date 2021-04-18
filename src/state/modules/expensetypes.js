@@ -1,16 +1,7 @@
 import axios from 'axios'
+import authHeader from '../helpers/authHeader'
 export const state = {
   expensetypes:[
-    {
-      id:'1',
-      expenseType:'farmer',
-      createDate:new Date().toLocaleDateString()
-    },
-    {
-      id:'2',
-      expenseType:'generale',
-      createDate:new Date().toLocaleDateString()
-    }
   ]
 };
 
@@ -40,19 +31,31 @@ export const mutations = {
 
 export const actions = {
   getExpensetypes({commit}){
-    axios.get(process.env.VUE_APP_API_BASE_URL+'expensetypes/');
-    commit('setExpenseTypes',[]);
-  },
-  deleteExpenseTypeByID({commit},id){
-    axios.delete(process.env.VUE_APP_API_BASE_URL+`expensetypes/${id}`);
-    commit('deleteExpenseType',id);
+    axios.get(process.env.VUE_APP_API_BASE_URL+'expense-types/',{
+      headers:authHeader()
+    }).then((res) => {
+      commit('setExpenseTypes',res.data.results);
+    });
   },
   createExpenseType({commit},expenseType){
-    axios.delete(process.env.VUE_APP_API_BASE_URL+`expensetypes/create`);
-    commit('pushExpenseType',expenseType);
+    axios.post(process.env.VUE_APP_API_BASE_URL+`expense-types/`,expenseType,{
+      headers:authHeader()
+    }).then(res => {
+      commit('pushExpenseType',res.data);
+    });
   },
   setExpenseType({commit},expenseType){
-    axios.put(process.env.VUE_APP_API_BASE_URL+`expensetypes/${expenseType.id}`);
-    commit('setExpenseType',expenseType);
-  }
+    axios.patch(process.env.VUE_APP_API_BASE_URL+`expense-types/${expenseType.id}`,{
+      headers:authHeader()
+    }).then(() => {
+      commit('setExpenseType',expenseType);
+    });
+  },
+  deleteExpenseTypeByID({commit},id){
+    axios.delete(process.env.VUE_APP_API_BASE_URL+`expense-types/${id}`,{
+      headers:authHeader()
+    }).then(()=>{
+      commit('deleteExpenseType',id);
+    });
+  },
 };

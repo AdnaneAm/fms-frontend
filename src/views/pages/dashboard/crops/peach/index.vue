@@ -34,7 +34,6 @@
       },
       fields(){
         return [
-          { key: "id", sortable: true, label: this.$t('tables.crops.id') },
           { key: "cropFarmer", sortable: true, label:this.$t('tables.crops.farmer')},
           { key: "cropParcel", sortable: true, label:this.$t('tables.crops.parcel')},
           { key: "cropCaliber", sortable: true, label:this.$t('tables.crops.caliber')},
@@ -42,6 +41,7 @@
           { key: "cropRootStock", sortable: false, label: this.$t('tables.crops.rootstock') },
           { key: "cropNumberOfBoxes", sortable: true, label: this.$t('tables.crops.boxesnumber') },
           { key: "cropExpensePrice", sortable: true, label: this.$t('tables.crops.expenseprice') },
+          { key: "createDate", sortable: true, label:this.$t('tables.expensetypes.date')},
           { key: "action" }
         ]
       },
@@ -57,7 +57,7 @@
       }
     },
     created(){
-      console.log(this.crops);
+      this.$store.dispatch('crops/getCrops');
     }
   }
 </script>

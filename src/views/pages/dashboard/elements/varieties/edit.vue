@@ -40,7 +40,7 @@
         return {
           title: this.$t('pages.editvariety.title'),
           description: this.$t('pages.editvariety.description'),
-          updateItemAction:'varieties/setVariety',
+          updateItemAction:'varieties/setVarietyByID',
           editItemButton:'pages.editvariety.title',
           redirectRouteName:'varieties',
           initialItem:Object.assign({},this.variety),

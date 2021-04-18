@@ -46,13 +46,11 @@
           createItemButton:'pages.addoutgoing.title',
           redirectRouteName:'outgoings',
           initialItem:{
-            id:Math.floor(Math.random()*10000),
             outgoingLabel:'',
             outgoingType:'',
             outgoingQuantity:0,
             outgoingUnitOfMesure:'',
             outgoingPrice:0,
-            createDate:new Date().toLocaleDateString()
           },
           formFields:[
             {

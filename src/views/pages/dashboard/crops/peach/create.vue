@@ -55,12 +55,12 @@
           createItemButton:'pages.addpeachcrop.title',
           redirectRouteName:'peach-crops',
           initialItem:{
-            id:Math.floor(Math.random()*10000),
+            
             cropType:'peach',
             cropParcel:'',
             cropVariety:'',
             cropNumberOfBoxes:0,
-            cropRootstock:'',
+            cropRootStock:'',
             cropCaliber:0,
             cropExpensePrice:0
           },
@@ -108,13 +108,6 @@
               ]
             },
             {
-              id:'crop-boxes-number',
-              key:'cropNumberOfBoxes',
-              label:'forms.cropboxesnumber',
-              labelFor:'boxes-num',
-              type:'number',
-            },
-            {
               id:'crop-rootstock',
               key:'cropRootStock',
               label:'forms.croprootstock',
@@ -125,7 +118,7 @@
                   text:'Choose a rootstock',
                   value:null
                 },
-                ...this.rootstocks.map(rootstock => rootstock.rootstock)
+                ...this.rootstocks.map(rootstock => rootstock.rootStock)
               ]
             },
             {
@@ -143,10 +136,10 @@
               ]
             },
             {
-              id:'crop-expense-price',
-              key:'cropExpensePrice',
-              label:'forms.cropexpenseprice',
-              labelFor:'expense-price',
+              id:'crop-boxes-number',
+              key:'cropNumberOfBoxes',
+              label:'forms.cropboxesnumber',
+              labelFor:'boxes-num',
               type:'number',
             },
           ]

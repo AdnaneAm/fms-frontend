@@ -40,7 +40,7 @@
           createItemButton:'pages.addexpensetype.title',
           redirectRouteName:'expensetypes',
           initialItem:{
-            id:Math.floor(Math.random()*10000),
+            
             expensetype:'',
           },
           formFields:[

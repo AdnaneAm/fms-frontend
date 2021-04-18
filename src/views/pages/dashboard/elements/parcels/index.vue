@@ -34,8 +34,8 @@
       },
       fields(){
         return [
-          { key: "id", sortable: true, label: this.$t('tables.parcels.id') },
           { key: "parcel", sortable: true, label:this.$t('tables.parcels.parcel')},
+          { key: "createDate", sortable: true, label:this.$t('tables.expensetypes.date')},
           { key: "action" }
         ]
       },
@@ -49,6 +49,9 @@
       parcels(){
         return this.$store.getters['parcels/getParcels']
       }
+    },
+    created(){
+      this.$store.dispatch('parcels/getParcels');
     }
   }
 </script>
