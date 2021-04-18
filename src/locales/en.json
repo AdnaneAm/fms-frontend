@@ -340,6 +340,9 @@
     "cropsstats":"Crops Statistics",
     "peachcrops":"Peach crops",
     "olivescrops":"Olives crops",
-    "almondcrops":"Almond crops"
+    "almondcrops":"Almond crops",
+    "expensesanalytics":"Expenses analytics",
+    "thismonth":"This month",
+    "thisyear":"This year"
   }
 }

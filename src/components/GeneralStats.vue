@@ -3,12 +3,14 @@
  * Widget Component
  */
 export default {
+  data(){
+    return {
+      cropsCount:0,
+    }
+  },
   computed:{
     farmersCount(){
       return this.$store.getters['expenses/getExpensesByType']('farmer').length;
-    },
-    cropsCount(){
-      return this.$store.state.crops.crops.length;
     },
     totalExpenses(){
       return this.$store.getters['outgoings/getOutgoings']
@@ -39,6 +41,9 @@ export default {
     } 
   },
   created(){
+    this.$store.dispatch('crops/getCropsByPeriod','day').then (crops => {
+      this.cropsCount = crops.length;
+    })
     this.$store.dispatch('outgoings/getOutgoings');
     this.$store.dispatch('expenses/getExpenses');
     this.$store.dispatch('crops/getCrops');

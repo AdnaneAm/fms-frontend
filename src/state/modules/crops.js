@@ -44,6 +44,13 @@ export const actions = {
       return Promise.resolve(res.data);
     })
   },
+  getCropsByPeriod(context,period){
+    return axios.get(process.env.VUE_APP_API_BASE_URL+'crops/period/'+period,{
+      headers:authHeader()
+    }).then(res => {
+      return Promise.resolve(res.data);
+    })
+  },
   createCrop({commit,rootGetters,dispatch},crop){
     // initialise outgoing qty and mesure unit
     let outgoingQuantity = 1,outgoingUnitOfMesure = 'jour';

@@ -2,6 +2,7 @@ import axios from 'axios'
 import authHeader from '../helpers/authHeader'
 export const state = {
   outgoings:[],
+  outgoingsCount:[]
 };
 
 export const getters = {
@@ -10,6 +11,9 @@ export const getters = {
   },
   getOutgoingByID: (state) => (id) => {
     return state.outgoings.filter(outgoing => outgoing.id == id);
+  },
+  getOutgoingsCount: (state) => {
+    return state.outgoingsCount;
   }
 }
 export const mutations = {
@@ -25,6 +29,9 @@ export const mutations = {
   setOutgoing(state,payload){
     const index = state.outgoings.findIndex(outgoing => outgoing.id == payload.id);
     state.outgoings[index] = payload
+  },
+  setOutgoingsCount(state,payload){
+    state.outgoingsCount = payload
   }
 };
 
@@ -34,6 +41,15 @@ export const actions = {
       headers:authHeader()
     }).then(res => {
       commit('setOutgoings',res.data.results);
+    });
+  },
+  getOutgoingsCountByMonth({commit}){
+    return axios.get(process.env.VUE_APP_API_BASE_URL+`outgoings/countByMonth/`,{
+      headers:authHeader()
+    }).then(res => {
+      const count = Object.values(res.data[0].data);
+      count.shift();
+      commit('setOutgoingsCount',count);
     });
   },
   createOutgoing({commit,rootGetters},outgoing){

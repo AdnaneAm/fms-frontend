@@ -3,6 +3,8 @@ import Layout from "../../layouts/main";
 import PageHeader from "@/components/page-header";
 import GeneralStats from "@/components/GeneralStats"
 import CropsStats from "@/components/CropsStats"
+import OutgoingsStats from "@/components/OutgoingsStats"
+
 /**
  * Dashboard component
  */
@@ -11,7 +13,8 @@ export default {
     Layout,
     PageHeader,
     GeneralStats,
-    CropsStats
+    CropsStats,
+    OutgoingsStats,
   },
     data() {
       return {
@@ -30,6 +33,9 @@ export default {
           }
         ]
       }
+    },
+    created(){
+      this.$store.dispatch('outgoings/getOutgoingsCountByMonth');
     }
 };
 </script>
@@ -38,6 +44,7 @@ export default {
   <Layout>
     <PageHeader :title="title" :items="items" />
     <general-stats />
-    <crops-stats />
+    <crops-stats /> 
+    <outgoings-stats />
   </Layout>
 </template>

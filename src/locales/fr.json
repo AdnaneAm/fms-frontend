@@ -327,8 +327,12 @@
       "dailycrops":"Récoltes quotidiennes",
       "totalexpenses":"Totale des dépenses",
       "previousperiod":"de la précedente fois",
+      "cropsstats":"Statistiques de récoltes",
       "almondcrops":"Récoltes d'amande",
       "peachcrops":"Récoltes de pêche",
-      "olivescrops":"Récoltes d'olives"
+      "olivescrops":"Récoltes d'olives",
+      "expensesanalytics":"Analyse de dépenses",
+      "thismonth":"Ce mois",
+      "thisyear":"Cette année"
     }
   }
