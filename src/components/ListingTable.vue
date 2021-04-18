@@ -49,7 +49,7 @@
             >
             <i class="mdi mdi-pencil font-size-18"></i>
             </router-link>
-            <a @click="deleteRow(row.item.id)" href="javascript:void(0);" class="text-danger" v-b-tooltip.hover title="Delete">
+            <a v-if="userRole == 'admin'" @click="deleteRow(row.item.id)" href="javascript:void(0);" class="text-danger" v-b-tooltip.hover title="Delete">
               <i class="mdi mdi-trash-can font-size-18"></i>
             </a>
           </template>
@@ -94,7 +94,8 @@
       filter: null,
       filterOn: [],
       sortBy: "id",
-      sortDesc: false
+      sortDesc: false,
+      userRole: 'user'
     };
   },
   computed: {
@@ -108,6 +109,11 @@
   mounted() {
     // Set the initial number of items
     this.totalRows = this.items.length;
+  },
+  created(){
+    this.$store.dispatch('auth/validate').then( ({user}) => {
+      this.userRole = user.role;
+    });
   },
   methods: {
     /**

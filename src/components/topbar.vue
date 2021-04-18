@@ -24,11 +24,6 @@ export default {
       current_language: "fr"
     };
   },
-  computed: {
-    flagImage() {
-      return './src/assets/images/flags/french.jpg'
-    }
-  },
   methods: {
     toggleMenu() {
       this.$parent.toggleMenu();
@@ -109,50 +104,12 @@ export default {
         >
           <i class="ri-menu-2-line align-middle"></i>
         </button>
-
-        <!-- App Search-->
-        <form class="app-search d-none d-lg-block">
-          <div class="position-relative">
-            <input type="text" class="form-control" :placeholder="$t('navbar.search.text')" />
-            <span class="ri-search-line"></span>
-          </div>
-        </form>
       </div>
 
       <div class="d-flex">
-        <div class="dropdown d-inline-block d-lg-none ml-2">
-          <button
-            type="button"
-            class="btn header-item noti-icon waves-effect"
-            id="page-header-search-dropdown"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <i class="ri-search-line"></i>
-          </button>
-          <div
-            class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
-            aria-labelledby="page-header-search-dropdown"
-          >
-            <form class="p-3">
-              <div class="form-group m-0">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search ..." />
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">
-                      <i class="ri-search-line"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
         <b-dropdown variant="white" right toggle-class="header-item">
           <template v-slot:button-content>
-            <img class :src="`${flagImage}`" alt="Header Language" height="16" />
+            <img class :src='require("@/assets/images/flags/french.jpg")' alt="Header Language" height="16" />
           </template>
           <b-dropdown-item
             class="notify-item"

@@ -92,6 +92,7 @@ export const menuItems = [
         id:17,
         label:'menuitems.expenses.text',
         icon:'ri-bill-line',
+        requireAdmin:true,
         subItems:[
             {
                 id:18,
@@ -108,7 +109,8 @@ export const menuItems = [
     {
         id:20,
         label:'menuitems.expensetypes.text',
-        icon:'ri-bill-line',
+        icon:'ri-ticket-line',
+        requireAdmin:true,
         subItems:[
             {
                 id:21,
@@ -125,7 +127,7 @@ export const menuItems = [
     {
         id:23,
         label:'menuitems.outgoings.text',
-        icon:'ri-bill-line',
+        icon:'ri-wallet-3-line',
         subItems:[
             {
                 id:24,

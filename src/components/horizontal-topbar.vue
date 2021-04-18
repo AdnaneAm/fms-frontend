@@ -32,22 +32,12 @@ export default {
           title: "French",
         },
         {
-          flag: require("@/assets/images/flags/spain.jpg"),
-          language: "es",
-          title: "spanish",
-        },
-        {
-          flag: require("@/assets/images/flags/chaina.png"),
-          language: "zh",
-          title: "Chinese",
-        },
-        {
           flag: require("@/assets/images/flags/arabic.png"),
           language: "ar",
           title: "Arabic",
         },
       ],
-      current_language: "en",
+      current_language: "fr",
     };
   },
   methods: {

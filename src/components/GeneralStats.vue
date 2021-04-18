@@ -13,30 +13,35 @@ export default {
     totalExpenses(){
       return this.$store.getters['outgoings/getOutgoings']
       .map(outgoing => outgoing.outgoingPrice)
-      .reduce((acc,curr) => acc+curr);
+      .reduce((acc,curr) => acc+curr,0);
     },
     statData(){
       return [
         {
           title: this.$t('stats.farmersnumber'),
-          icon: "ri-stack-line",
+          icon: "ri-group-line",
           value: this.farmersCount,
           subvalue: " 2.4% "
         },
         {
           title: this.$t('stats.dailycrops'),
-          icon: "ri-store-2-line",
+          icon: "ri-leaf-line",
           value: this.cropsCount,
           subvalue: " 2.4% "
         },
         {
           title: this.$t('stats.totalexpenses'),
-          icon: "ri-briefcase-4-line",
+          icon: "ri-wallet-3-line",
           value: this.totalExpenses+' MAD',
           subvalue: " 2.4% "
         }
       ]
     } 
+  },
+  created(){
+    this.$store.dispatch('outgoings/getOutgoings');
+    this.$store.dispatch('expenses/getExpenses');
+    this.$store.dispatch('crops/getCrops');
   }
 };
 </script>
@@ -69,5 +74,4 @@ export default {
       </div>
     </div>
   </div>
-  <!-- end row -->
 </template>

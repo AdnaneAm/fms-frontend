@@ -325,6 +325,9 @@
       "farmersnumber":"Nombre d'agriculteurs",
       "dailycrops":"Récoltes quotidiennes",
       "totalexpenses":"Totale des dépenses",
-      "previousperiod":"de la précedente fois"
+      "previousperiod":"de la précedente fois",
+      "almondcrops":"Récoltes d'amande",
+      "peachcrops":"Récoltes de pêche",
+      "olivescrops":"Récoltes d'olives"
     }
   }

@@ -191,7 +191,7 @@ export default [
         path:'/expenses',
         name:'expenses',
         meta: {
-            authRequired: true,
+            adminRequired: true,
         },
         component: () => import('../views/pages/dashboard/expenses/index')
     },
@@ -200,7 +200,7 @@ export default [
         path:'/expenses/create',
         name:'create-expense',
         meta: {
-            authRequired: true,
+            adminRequired: true,
         },
         component: () => import('../views/pages/dashboard/expenses/create')
     },
@@ -209,7 +209,7 @@ export default [
         path:'/expenses/:id/edit',
         name:'edit-expense',
         meta: {
-            authRequired: true,
+            adminRequired: true,
         },
         component: () => import('../views/pages/dashboard/expenses/edit')
     },
@@ -218,7 +218,7 @@ export default [
         path:'/expensetypes',
         name:'expensetypes',
         meta: {
-            authRequired: true,
+            adminRequired: true,
         },
         component: () => import('../views/pages/dashboard/expensetypes/index')
     },
@@ -227,7 +227,7 @@ export default [
         path:'/expensetypes/create',
         name:'create-expensetype',
         meta: {
-            authRequired: true,
+            adminRequired: true,
         },
         component: () => import('../views/pages/dashboard/expensetypes/create')
     },
@@ -236,7 +236,7 @@ export default [
         path:'/expensetypes/:id/edit',
         name:'edit-expensetype',
         meta: {
-            authRequired: true,
+            adminRequired: true,
         },
         component: () => import('../views/pages/dashboard/expensetypes/edit')
     },
@@ -373,5 +373,14 @@ export default [
             authRequired: true,
         },
         component: () => import('../views/pages/dashboard/elements/rootstocks/edit')
+    },
+    // Errors route
+    {
+        path:'/errors/forbidden',
+        name:'forbidden',
+        meta: {
+            authRequired: true,
+        },
+        component: () => import('../views/pages/errors/forbidden')
     },
 ]

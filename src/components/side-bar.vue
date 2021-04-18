@@ -26,6 +26,7 @@ export default {
   data() {
     return {
       menuItems: menuItems,
+      userRole: 'user',
     };
   },
   computed: {
@@ -81,6 +82,11 @@ export default {
         }
       }
     }
+  },
+  created(){
+    this.$store.dispatch('auth/validate').then(({user}) => {
+      this.userRole = user.role;
+    });
   },
   methods: {
     /**
@@ -181,9 +187,8 @@ export default {
             <li class="menu-title" v-if="item.isTitle" :key="item.id">
               {{ $t(item.label) }}
             </li>
-
             <!--end Layouts menu -->
-            <li v-if="!item.isTitle && !item.isLayout" :key="item.id">
+            <li v-if="(!item.isTitle && !item.isLayout) && ((!item.requireAdmin || userRole == 'admin') )" :key="item.id">
               <a
                 v-if="hasItems(item)"
                 href="javascript:void(0);"

@@ -15,6 +15,9 @@ export const getters = {
     loggedIn(state) {
         return !!state.currentUser
     },
+    getLoggedInUser(state){
+        return state.currentUser;
+    }
 }
 
 export const actions = {
@@ -72,7 +75,7 @@ export const actions = {
     },
     setLoggedInUser({commit}){
         const user = localStorage.getItem('auth.currentUser');
-        commit('SET_CURRENT_USER',user);
+        commit('SET_CURRENT_USER',JSON.parse(user));
     },
 }
 
