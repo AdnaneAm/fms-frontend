@@ -79,7 +79,7 @@ export default {
             <div class="authentication-page-content p-4 d-flex align-items-center min-vh-100">
               <div class="w-100">
                 <div class="row justify-content-center">
-                  <div class="col-lg-9">
+                  <div class="col-lg-12 col-md-6">
                     <div>
                       <div class="text-center">
                         <div>
@@ -88,8 +88,8 @@ export default {
                           </a>
                         </div>
 
-                        <h4 class="font-size-18 mt-4">Welcome Back !</h4>
-                        <p class="text-muted">Sign in to continue to Nazox.</p>
+                        <h4 class="font-size-18 mt-4">{{$t('pages.login.title')}}</h4>
+                        <p class="text-muted">{{$t('pages.login.description')}}</p>
                       </div>
                       <b-alert
                         variant="danger"
@@ -103,13 +103,13 @@ export default {
                         <form class="form-horizontal" @submit.prevent="tryToLogIn">
                           <div class="form-group auth-form-group-custom mb-4">
                             <i class="ri-mail-line auti-custom-input-icon"></i>
-                            <label for="email">Email</label>
+                            <label for="email">{{$t('forms.email.text')}}</label>
                             <input
                               type="email"
                               v-model="email"
                               class="form-control"
                               id="email"
-                              placeholder="Enter email"
+                              :placeholder="$t('forms.email.placeholder')"
                               :class="{ 'is-invalid': submitted && $v.email.$error }"
                             />
                             <div v-if="submitted && $v.email.$error" class="invalid-feedback">
@@ -120,13 +120,13 @@ export default {
 
                           <div class="form-group auth-form-group-custom mb-4">
                             <i class="ri-lock-2-line auti-custom-input-icon"></i>
-                            <label for="userpassword">Password</label>
+                            <label for="userpassword">{{$t('forms.password.text')}}</label>
                             <input
                               v-model="password"
                               type="password"
                               class="form-control"
                               id="userpassword"
-                              placeholder="Enter password"
+                              :placeholder="$t('forms.password.placeholder')"
                               :class="{ 'is-invalid': submitted && $v.password.$error }"
                             />
                             <div
@@ -134,8 +134,7 @@ export default {
                               class="invalid-feedback"
                             >Password is required.</div>
                           </div>
-
-                          <div class="custom-control custom-checkbox">
+                          <!-- <div class="custom-control custom-checkbox">
                             <input
                               type="checkbox"
                               class="custom-control-input"
@@ -145,26 +144,26 @@ export default {
                               class="custom-control-label"
                               for="customControlInline"
                             >Remember me</label>
-                          </div>
+                          </div> -->
 
                           <div class="mt-4 text-center">
                             <button
                               class="btn btn-primary w-md waves-effect waves-light"
                               type="submit"
-                            >Log In</button>
+                            >{{$t('forms.login')}}</button>
                           </div>
 
-                          <div class="mt-4 text-center">
+                          <!-- <div class="mt-4 text-center">
                             <router-link tag="a" to="/forgot-password" class="text-muted">
                               <i class="mdi mdi-lock mr-1"></i> Forgot your password?
                             </router-link>
-                          </div>
+                          </div> -->
                         </form>
                       </div>
 
                       <div class="mt-5 text-center">
                         <p>
-                          Don't have an account ?
+                          {{$t('pages.login.registermessage')}}
                           <router-link
                             tag="a"
                             to="/register"

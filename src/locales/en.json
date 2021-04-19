@@ -235,6 +235,12 @@
       "success":"Registration successful",
       "alreadymessage":"Already have an accout ? ",
       "login":"Login"
+    },
+    "login":{
+      "title":"Welcome back !",
+      "description":"Sign in to continue to your dashboard",
+      "registermessage":"Don't have an account ? ",
+      "register":"Register"
     }
   },
   "forms":{
@@ -263,7 +269,17 @@
     "outgoingtype":"Outgoing type",
     "outgoingmeasureunit":"Measure unit",
     "quantity":"Quantity",
-    "cropdate":"Harvested on"
+    "cropdate":"Harvested on",
+    "email":{
+      "text":"Email",
+      "placeholder":"Enter your email"
+    },
+    "password":{
+      "text":"Password",
+      "placeholder":"Enter your password"
+    },
+    "login":"Log in",
+    "register":"Register"
   },
   "tables":{
     "farmers":{

@@ -90,7 +90,7 @@ export default {
             <div class="authentication-page-content p-4 d-flex align-items-center min-vh-100">
               <div class="w-100">
                 <div class="row justify-content-center">
-                  <div class="col-lg-9">
+                  <div class="col-lg-12 col-md-6">
                     <div>
                       <div class="text-center">
                         <div>

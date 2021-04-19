@@ -227,6 +227,19 @@
       "editvariety":{
         "title":"Modifier variété",
         "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"
+      },
+      "register":{
+        "title":"Créer un compte",
+        "description":"Créer votre compte dès maintenant",
+        "success":"Inscription réussie",
+        "alreadymessage":"Vous avez déjà un compte ? ",
+        "login":"Connexion"
+      },
+      "login":{
+        "title":"Content de te revoir !",
+        "description":"Connectez-vous pour accéder à votre tableau de bord",
+        "registermessage":"Vous n'avez pas de compte? ",
+        "register":"S'inscrire"
       }
     },
     "forms":{
@@ -255,7 +268,17 @@
       "outgoingtype":"Type de charge",
       "outgoingmeasureunit":"Unité de mesure",
       "quantity":"Quantité",
-      "cropdate":"Récolté le"
+      "cropdate":"Récolté le",
+      "email":{
+        "text":"Email",
+        "placeholder":"Entrer votre email"
+      },
+      "password":{
+        "text":"Mot de passe",
+        "placeholder":"Enter votre mot de passe"
+      },
+      "login":"Connexion",
+      "register":"Inscription"
     },
     "tables":{
       "farmers":{

@@ -372,16 +372,6 @@ export default {
                     </li>
                   </ul>
                 </div>
-
-                <div class="col-sm-5">
-                  <div>
-                    <img
-                      src="@/assets/images/megamenu-img.png"
-                      alt
-                      class="img-fluid mx-auto d-block"
-                    />
-                  </div>
-                </div>
               </div>
             </div>
           </div>
