@@ -1,405 +1,221 @@
 export const menuItems = [
     {
         id: 1,
+        label: "menuitems.menu.text",
+        isTitle: true
+    },
+    {
+        id: 2,
         label: 'menuitems.dashboard.text',
         icon: 'ri-dashboard-line',
         link: '/'
     },
     {
-        id: 2,
-        label: 'menuitems.uielements.text',
-        icon: 'ri-pencil-ruler-2-line',
-        subItems: [
-            {
-                id: 3,
-                label: 'menuitems.uielements.list.alerts',
-                link: ''
-            },
+        id: 3,
+        label: 'menuitems.farmers.text',
+        icon:'ri-user-3-line',
+        subItems:[
             {
                 id: 4,
-                label: 'menuitems.uielements.list.buttons',
-                link: ''
+                label: 'menuitems.farmers.list.farmers',
+                icon: ' ri-group-line',
+                link: '/farmers',
             },
             {
                 id: 5,
-                label: 'menuitems.uielements.list.cards',
-                link: ''
+                label: 'menuitems.farmers.list.addfarmer',
+                icon: 'ri-user-add-line',
+                link: '/farmers/create',
             },
-            {
-                id: 6,
-                label: 'menuitems.uielements.list.carousel',
-                link: ''
-            },
-            {
-                id: 7,
-                label: 'menuitems.uielements.list.dropdowns',
-                link: ''
-            },
-            {
-                id: 8,
-                label: 'menuitems.uielements.list.grid',
-                link: ''
-            },
-            {
-                id: 9,
-                label: 'menuitems.uielements.list.images',
-                link: ''
-            },
-            {
-                id: 10,
-                label: 'menuitems.uielements.list.lightbox',
-                link: ''
-            },
-            {
-                id: 11,
-                label: 'menuitems.uielements.list.modals',
-                link: ''
-            },
-            {
-                id: 12,
-                label: 'menuitems.uielements.list.rangeslider',
-                link: ''
-            },
-            {
-                id: 13,
-                label: 'menuitems.uielements.list.sessiontimeout',
-                link: ''
-            },
-            {
-                id: 14,
-                label: 'menuitems.uielements.list.progressbar',
-                link: ''
-            },
-            {
-                id: 15,
-                label: 'menuitems.uielements.list.sweetalert',
-                link: ''
-            },
-            {
-                id: 16,
-                label: 'menuitems.uielements.list.tabs',
-                link: ''
-            },
-            {
-                id: 17,
-                label: 'menuitems.uielements.list.typography',
-                link: ''
-            },
-            {
-                id: 18,
-                label: 'menuitems.uielements.list.video',
-                link: ''
-            },
-            {
-                id: 19,
-                label: 'menuitems.uielements.list.general',
-                link: ''
-            },
-            {
-                id: 20,
-                label: 'menuitems.uielements.list.rating',
-                link: ''
-            },
-            {
-                id: 21,
-                label: 'menuitems.uielements.list.notifications',
-                link: ''
-            }
         ]
     },
     {
-        id: 22,
-        label: 'menuitems.apps.text',
-        icon: 'ri-apps-2-line',
-        subItems: [
+        id: 6,
+        label: 'menuitems.crops.text',
+        icon:'ri-leaf-line',
+        subItems:[
             {
-                id: 23,
-                label: 'menuitems.calendar.text',
-                link: ''
-            },
-            {
-                id: 24,
-                label: 'menuitems.chat.text',
-                link: ''
-            },
-            {
-                id: 25,
-                label: 'menuitems.email.text',
-                subItems: [
+                id:7,
+                label: 'menuitems.crops.list.peach.text',
+                link:'',
+                subItems:[
                     {
-                        id: 26,
-                        label: 'menuitems.email.list.inbox',
-                        link: ''
+                        id:8,
+                        label:'menuitems.crops.list.peach.list.peachcrops',
+                        link:'/crops/peach'
                     },
                     {
-                        id: 27,
-                        label: 'menuitems.email.list.reademail',
-                        link: ''
+                        id:9,
+                        label:'menuitems.crops.list.peach.list.addpeach',
+                        link:'/crops/peach/create'
                     }
                 ]
             },
             {
-                id: 28,
-                label: 'menuitems.ecommerce.text',
-                subItems: [
+                id:10,
+                label: 'menuitems.crops.list.olives.text',
+                link:'',
+                subItems:[
                     {
-                        id: 29,
-                        label: 'menuitems.ecommerce.list.products',
-                        link: ''
+                        id:11,
+                        label:'menuitems.crops.list.olives.list.olivescrops',
+                        link:'/crops/olives'
                     },
                     {
-                        id: 30,
-                        label: 'menuitems.ecommerce.list.productdetail',
-                        link: ''
-                    },
-                    {
-                        id: 31,
-                        label: 'menuitems.ecommerce.list.orders',
-                        link: ''
-                    },
-                    {
-                        id: 32,
-                        label: 'menuitems.ecommerce.list.customers',
-                        link: ''
-                    },
-                    {
-                        id: 33,
-                        label: 'menuitems.ecommerce.list.cart',
-                        link: ''
-                    },
-                    {
-                        id: 34,
-                        label: 'menuitems.ecommerce.list.checkout',
-                        link: ''
-                    },
-                    {
-                        id: 35,
-                        label: 'menuitems.ecommerce.list.shops',
-                        link: ''
-                    },
-                    {
-                        id: 36,
-                        label: 'menuitems.ecommerce.list.addproduct',
-                        link: ''
+                        id:12,
+                        label:'menuitems.crops.list.olives.list.addolives',
+                        link:'/crops/olives/create'
                     }
                 ]
             },
             {
-                id: 37,
-                label: 'menuitems.kanban.text',
-                link: ''
-            }
+                id:13,
+                label: 'menuitems.crops.list.almond.text',
+                link:'',
+                subItems:[
+                    {
+                        id:14,
+                        label:'menuitems.crops.list.almond.list.almondcrops',
+                        link:'/crops/almond'
+                    },
+                    {
+                        id:15,
+                        label:'menuitems.crops.list.almond.list.addalmond',
+                        link:'/crops/almond/create',
+                    }
+                ]
+            },
         ]
     },
     {
-        id: 37,
-        label: 'menuitems.components.text',
-        icon: 'ri-stack-line',
-        subItems: [
+        id:16,
+        label:'menuitems.outgoings.text',
+        isTitle: true
+    },
+    {
+        id:17,
+        label:'menuitems.expenses.text',
+        icon:'ri-bill-line',
+        requireAdmin:true,
+        subItems:[
             {
-                id: 38,
-                label: 'menuitems.forms.text',
-                subItems: [
-                    {
-                        id: 39,
-                        label: 'menuitems.forms.list.elements',
-                        link: ''
-                    },
-                    {
-                        id: 40,
-                        label: 'menuitems.forms.list.validation',
-                        link: ''
-                    },
-                    {
-                        id: 41,
-                        label: 'menuitems.forms.list.advanced',
-                        link: ''
-                    },
-                    {
-                        id: 42,
-                        label: 'menuitems.forms.list.editor',
-                        link: ''
-                    },
-                    {
-                        id: 43,
-                        label: 'menuitems.forms.list.fileupload',
-                        link: ''
-                    },
-                    {
-                        id: 44,
-                        label: 'menuitems.forms.list.wizard',
-                        link: ''
-                    },
-                    {
-                        id: 45,
-                        label: 'menuitems.forms.list.mask',
-                        link: ''
-                    }
-                ]
+                id:18,
+                label:'menuitems.expenses.list.expenses',
+                link:'/expenses'
             },
             {
-                id: 46,
-                label: 'menuitems.tables.text',
-                subItems: [
-                    {
-                        id: 47,
-                        label: 'menuitems.tables.list.basic',
-                        link: ''
-                    },
-                    {
-                        id: 48,
-                        label: 'menuitems.tables.list.advanced',
-                        link: ''
-                    }
-                ]
+                id:19,
+                label:'menuitems.expenses.list.addexpenses',
+                link:'/expenses/create'
             },
-            {
-                id: 50,
-                label: 'menuitems.charts.text',
-                subItems: [
-                    {
-                        id: 51,
-                        label: 'menuitems.charts.list.apex',
-                        link: ''
-                    },
-                    {
-                        id: 52,
-                        label: 'menuitems.charts.list.chartjs',
-                        link: ''
-                    },
-                    {
-                        id: 52,
-                        label: 'menuitems.charts.list.chartist',
-                        link: ''
-                    },
-                    {
-                        id: 52,
-                        label: 'menuitems.charts.list.echart',
-                        link: ''
-                    },
-                ]
-            },
-            {
-                id: 53,
-                label: 'menuitems.icons.text',
-                subItems: [
-                    {
-                        id: 54,
-                        label: 'menuitems.icons.list.remix',
-                        link: ''
-                    },
-                    {
-                        id: 55,
-                        label: 'menuitems.icons.list.materialdesign',
-                        link: ''
-                    },
-                    {
-                        id: 56,
-                        label: 'menuitems.icons.list.dripicons',
-                        link: ''
-                    },
-                    {
-                        id: 57,
-                        label: 'menuitems.icons.list.fontawesome',
-                        link: ''
-                    }
-                ]
-            },
-            {
-                id: 58,
-                label: 'menuitems.maps.text',
-                subItems: [
-                    {
-                        id: 59,
-                        label: 'menuitems.maps.list.googlemap',
-                        link: ''
-                    },
-                    {
-                        id: 60,
-                        label: 'menuitems.maps.list.leaflet',
-                        link: ''
-                    }
-                ]
-            }
         ]
     },
     {
-        id: 61,
-        label: 'menuitems.pages.text',
-        icon: 'ri-file-copy-2-line',
-        subItems: [
+        id:20,
+        label:'menuitems.expensetypes.text',
+        icon:'ri-ticket-line',
+        requireAdmin:true,
+        subItems:[
             {
-                id: 62,
-                label: 'menuitems.authentication.text',
-                subItems: [
-                    {
-                        id: 63,
-                        label: 'menuitems.authentication.list.login',
-                        link: ''
-                    },
-                    {
-                        id: 64,
-                        label: 'menuitems.authentication.list.register',
-                        link: ''
-                    },
-                    {
-                        id: 65,
-                        label: 'menuitems.authentication.list.recoverpwd',
-                        link: ''
-                    },
-                    {
-                        id: 66,
-                        label: 'menuitems.authentication.list.lockscreen',
-                        link: ''
-                    },
-                ]
+                id:21,
+                label:'menuitems.expensetypes.list.expensetypes',
+                link:'/expensetypes'
             },
             {
-                id: 67,
-                label: 'menuitems.utility.text',
-                subItems: [
-                    {
-                        id: 68,
-                        label: 'menuitems.utility.list.starter',
-                        link: ''
-                    },
-                    {
-                        id: 69,
-                        label: 'menuitems.utility.list.maintenance',
-                        link: ''
-                    },
-                    {
-                        id: 70,
-                        label: 'menuitems.utility.list.comingsoon',
-                        link: ''
-                    },
-                    {
-                        id: 71,
-                        label: 'menuitems.utility.list.timeline',
-                        link: ''
-                    },
-                    {
-                        id: 72,
-                        label: 'menuitems.utility.list.faqs',
-                        link: ''
-                    },
-                    {
-                        id: 73,
-                        label: 'menuitems.utility.list.pricing',
-                        link: ''
-                    },
-                    {
-                        id: 74,
-                        label: 'menuitems.utility.list.error404',
-                        link: ''
-                    },
-                    {
-                        id: 75,
-                        label: 'menuitems.utility.list.error500',
-                        link: ''
-                    }
-                ]
-            }
+                id:22,
+                label:'menuitems.expensetypes.list.addexpensetype',
+                link:'/expensetypes/create'
+            },
         ]
-    }
+    },
+    {
+        id:23,
+        label:'menuitems.outgoings.text',
+        icon:'ri-wallet-3-line',
+        subItems:[
+            {
+                id:24,
+                label:'menuitems.outgoings.list.outgoings',
+                link:'/outgoings'
+            },
+            {
+                id:25,
+                label:'menuitems.outgoings.list.addoutgoing',
+                link:'/outgoings/create'
+            },
+        ]
+    },
+    {
+        id:26,
+        label:'menuitems.elements.text',
+        isTitle: true
+    },
+    {
+        id:27,
+        label:'menuitems.elements.list.parcels.text',
+        link:'',
+        subItems:[
+            {
+                id:28,
+                label:'menuitems.elements.list.parcels.list.parcelslist',
+                link:'/elements/parcels'
+            },
+            {
+                id:29,
+                label:'menuitems.elements.list.parcels.list.addparcel',
+                link:'/elements/parcels/create'
+            },
+        ]
+    },
+    {
+        id:30,
+        label:'menuitems.elements.list.calibers.text',
+        link:'',
+        subItems:[
+            {
+                id:31,
+                label:'menuitems.elements.list.calibers.list.caliberslist',
+                link:'/elements/calibers'
+            },
+            {
+                id:32,
+                label:'menuitems.elements.list.calibers.list.addcaliber',
+                link:'/elements/calibers/create'
+            },
+        ]
+    },
+    {
+        id:33,
+        label:'menuitems.elements.list.rootstocks.text',
+        link:'',
+        subItems:[
+            {
+                id:34,
+                label:'menuitems.elements.list.rootstocks.list.rootstockslist',
+                link:'/elements/rootstocks'
+            },
+            {
+                id:35,
+                label:'menuitems.elements.list.rootstocks.list.addrootstock',
+                link:'/elements/rootstocks/create'
+            },
+        ]
+    },
+    {
+        id:36,
+        label:'menuitems.elements.list.varieties.text',
+        link:'',
+        subItems:[
+            {
+                id:37,
+                label:'menuitems.elements.list.varieties.list.varietieslist',
+                link:'/elements/varieties'
+            },
+            {
+                id:38,
+                label:'menuitems.elements.list.varieties.list.addvariety',
+                link:'/elements/varieties/create'
+            },
+        ]
+    },
 ]

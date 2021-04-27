@@ -24,6 +24,11 @@ export default {
       current_language: "fr"
     };
   },
+  computed: {
+    user(){
+      return this.$store.getters['auth/getLoggedInUser']
+    }
+  },
   methods: {
     toggleMenu() {
       this.$parent.toggleMenu();
@@ -123,19 +128,6 @@ export default {
             <span class="align-middle">{{ entry.title }}</span>
           </b-dropdown-item>
         </b-dropdown>
-
-        <b-dropdown
-          class="d-none d-lg-inline-block d-lg-inline-block ml-1"
-          menu-class="dropdown-menu-lg"
-          right
-          toggle-class="header-item noti-icon"
-          variant="black"
-        >
-          <template v-slot:button-content>
-            <i class="ri-apps-2-line"></i>
-          </template>
-        </b-dropdown>
-
         <div class="dropdown d-none d-lg-inline-block ml-1">
           <button
             type="button"
@@ -152,7 +144,7 @@ export default {
           class="d-inline-block user-dropdown"
         >
           <template v-slot:button-content>
-            <span class="d-none d-xl-inline-block ml-1">{{ $t('navbar.dropdown.kevin.text')}}</span>
+            {{user.user.name}}
             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
           </template>
           <!-- item-->
