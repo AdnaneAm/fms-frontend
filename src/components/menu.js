@@ -11,23 +11,6 @@ export const menuItems = [
         link: '/'
     },
     {
-        id: 3,
-        label: 'menuitems.farmers.text',
-        isTitle: true
-    },
-    {
-        id: 4,
-        label: 'menuitems.farmers.list.farmers',
-        icon: ' ri-group-line',
-        link: '/farmers',
-    },
-    {
-        id: 5,
-        label: 'menuitems.farmers.list.addfarmer',
-        icon: 'ri-user-add-line',
-        link: '/farmers/create',
-    },
-    {
         id: 6,
         label: 'menuitems.crops.text',
         isTitle: true
@@ -35,7 +18,7 @@ export const menuItems = [
     {
         id:7,
         label: 'menuitems.crops.list.peach.text',
-        link:'',
+        icon:'ri-leaf-line',
         subItems:[
             {
                 id:8,
@@ -52,7 +35,7 @@ export const menuItems = [
     {
         id:10,
         label: 'menuitems.crops.list.olives.text',
-        link:'',
+        icon:'ri-leaf-line',
         subItems:[
             {
                 id:11,
@@ -69,7 +52,7 @@ export const menuItems = [
     {
         id:13,
         label: 'menuitems.crops.list.almond.text',
-        link:'',
+        icon:'ri-leaf-line',
         subItems:[
             {
                 id:14,
@@ -87,6 +70,24 @@ export const menuItems = [
         id:16,
         label:'menuitems.outgoings.text',
         isTitle: true
+    },
+    {
+        id: 3,
+        label: 'menuitems.farmers.text',
+        subItems: [
+            {
+                id: 4,
+                label: 'menuitems.farmers.list.farmers',
+                icon: ' ri-group-line',
+                link: '/farmers',
+            },
+            {
+                id: 5,
+                label: 'menuitems.farmers.list.addfarmer',
+                icon: 'ri-user-add-line',
+                link: '/farmers/create',
+            },
+        ]
     },
     {
         id:17,

@@ -33,29 +33,29 @@ export const mutations = {
 };
 
 export const actions = {
-  getVarieties({commit}){
-    return axios.get(process.env.VUE_APP_API_BASE_URL+'varieties/',{
+  async getVarieties({commit}){
+    return await axios.get(process.env.VUE_APP_API_BASE_URL+'varieties/',{
       headers:authHeader()
     }).then(res => {
       commit('setVarieties',res.data.results);
     })
   },
-  createVariety({commit},variety){
-    return axios.post(process.env.VUE_APP_API_BASE_URL+'varieties/',variety,{
+  async createVariety({commit},variety){
+    return await axios.post(process.env.VUE_APP_API_BASE_URL+'varieties/',variety,{
       headers:authHeader()
     }).then(res => {
       commit('pushVariety',res.data);
     })
   },
-  setVarietyByID({commit},variety){
-    return axios.patch(process.env.VUE_APP_API_BASE_URL+`varieties/${variety.id}`,{
+  async setVarietyByID({commit},variety){
+    return await axios.patch(process.env.VUE_APP_API_BASE_URL+`varieties/${variety.id}`,{
       headers:authHeader()
     }).then(() => {
       commit('setVariety',variety);
     })
   },
-  deleteVarietyByID({commit},id){
-    return axios.delete(process.env.VUE_APP_API_BASE_URL+`varieties/${id}`,{
+  async deleteVarietyByID({commit},id){
+    return await axios.delete(process.env.VUE_APP_API_BASE_URL+`varieties/${id}`,{
       headers:authHeader()
     }).then(() => {
       commit('deleteVariety',id)

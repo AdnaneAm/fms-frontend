@@ -30,29 +30,29 @@ export const mutations = {
 };
 
 export const actions = {
-  getExpensetypes({commit}){
-    axios.get(process.env.VUE_APP_API_BASE_URL+'expense-types/',{
+  async getExpensetypes({commit}){
+    await axios.get(process.env.VUE_APP_API_BASE_URL+'expense-types/',{
       headers:authHeader()
     }).then((res) => {
       commit('setExpenseTypes',res.data.results);
     });
   },
-  createExpenseType({commit},expenseType){
-    axios.post(process.env.VUE_APP_API_BASE_URL+`expense-types/`,expenseType,{
+  async createExpenseType({commit},expenseType){
+    await axios.post(process.env.VUE_APP_API_BASE_URL+`expense-types/`,expenseType,{
       headers:authHeader()
     }).then(res => {
       commit('pushExpenseType',res.data);
     });
   },
-  setExpenseType({commit},expenseType){
-    axios.patch(process.env.VUE_APP_API_BASE_URL+`expense-types/${expenseType.id}`,{
+  async setExpenseType({commit},expenseType){
+    await axios.patch(process.env.VUE_APP_API_BASE_URL+`expense-types/${expenseType.id}`,{
       headers:authHeader()
     }).then(() => {
       commit('setExpenseType',expenseType);
     });
   },
-  deleteExpenseTypeByID({commit},id){
-    axios.delete(process.env.VUE_APP_API_BASE_URL+`expense-types/${id}`,{
+  async deleteExpenseTypeByID({commit},id){
+    await axios.delete(process.env.VUE_APP_API_BASE_URL+`expense-types/${id}`,{
       headers:authHeader()
     }).then(()=>{
       commit('deleteExpenseType',id);

@@ -67,8 +67,8 @@ export default {
       return this.count.reduce((acc,curr) => acc+curr,0);
     }
   },
-  created(){
-    this.$store.dispatch('outgoings/getOutgoingsCountByMonth');
+  async created(){
+    await this.$store.dispatch('outgoings/getOutgoingsCountByMonth');
     this.count = this.$store.getters['outgoings/getOutgoingsCount'];
   }
 };

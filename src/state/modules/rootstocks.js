@@ -30,29 +30,29 @@ export const mutations = {
 };
 
 export const actions = {
-  getRootstocks({commit}){
-    return axios.get(process.env.VUE_APP_API_BASE_URL+'rootstocks/',{
+  async getRootstocks({commit}){
+    return await axios.get(process.env.VUE_APP_API_BASE_URL+'rootstocks/',{
       headers:authHeader()
     }).then(res => {
       commit('setRootstocks',res.data.results);
     })
   },
-  createRootstock({commit},rootstock){
-    return axios.post(process.env.VUE_APP_API_BASE_URL+'rootstocks/', rootstock,{
+  async createRootstock({commit},rootstock){
+    return await axios.post(process.env.VUE_APP_API_BASE_URL+'rootstocks/', rootstock,{
       headers:authHeader()
     }).then(res => {
       commit('pushRootstock',res.data);
     })
   },
-  setRootstock({commit},rootstock){
-    return axios.patch(process.env.VUE_APP_API_BASE_URL+`rootstocks/${rootstock.id}`,{
+  async setRootstock({commit},rootstock){
+    return await axios.patch(process.env.VUE_APP_API_BASE_URL+`rootstocks/${rootstock.id}`,{
       headers:authHeader()
     }).then(() => {
       commit('setRootstock',rootstock);
     })
   },
-  deleteRootstockByID({commit},id){
-    return axios.delete(process.env.VUE_APP_API_BASE_URL+`rootstocks/${id}`,{
+  async deleteRootstockByID({commit},id){
+    return await axios.delete(process.env.VUE_APP_API_BASE_URL+`rootstocks/${id}`,{
       headers:authHeader()
     }).then(() => {
       commit('deleteRootstock',id);

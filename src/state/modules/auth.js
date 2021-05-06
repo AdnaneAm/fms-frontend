@@ -29,8 +29,8 @@ export const actions = {
     },
 
     // Logs in the current user.
-    logIn({ commit }, user) {
-        return axios.post(process.env.VUE_APP_API_BASE_URL+'auth/login',user).then((response) => {
+    async logIn({ commit }, user) {
+        return await axios.post(process.env.VUE_APP_API_BASE_URL+'auth/login',user).then((response) => {
             const user = response.data;
             localStorage.setItem('auth-token',JSON.stringify(user.tokens.access.token));
             localStorage.setItem('refresh-token',JSON.stringify(user.tokens.refresh.token));
@@ -39,10 +39,10 @@ export const actions = {
         })
     },
     // Logs out the current user.
-    logOut({ commit }) {
+    async logOut({ commit }) {
         // eslint-disable-next-line no-unused-vars
         commit('SET_CURRENT_USER', null)
-        return axios.post(process.env.VUE_APP_API_BASE_URL+'auth/logout',{
+        return await axios.post(process.env.VUE_APP_API_BASE_URL+'auth/logout',{
             refreshToken: JSON.parse(localStorage.getItem('refresh-token'))
         }).then(() => {
             localStorage.removeItem('auth-token');
@@ -55,8 +55,8 @@ export const actions = {
     },
 
     // register the user
-    register({ commit }, user) {
-        return axios.post(process.env.VUE_APP_API_BASE_URL+'auth/register',user).then((response) => {
+    async register({ commit }, user) {
+        return await axios.post(process.env.VUE_APP_API_BASE_URL+'auth/register',user).then((response) => {
             const user = response.data;
             localStorage.setItem('auth-token',JSON.stringify(user.tokens.access.token));
             localStorage.setItem('refresh-token',JSON.stringify(user.tokens.refresh.token));

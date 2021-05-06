@@ -39,15 +39,15 @@ export const mutations = {
 };
 
 export const actions = {
-  getOutgoings({commit}){
-    axios.get(process.env.VUE_APP_API_BASE_URL+'outgoings/',{
+  async getOutgoings({commit}){
+    await axios.get(process.env.VUE_APP_API_BASE_URL+'outgoings/',{
       headers:authHeader()
     }).then(res => {
       commit('setOutgoings',res.data.results);
     });
   },
-  getOutgoingsCountByMonth({commit}){
-    return axios.get(process.env.VUE_APP_API_BASE_URL+`outgoings/countByMonth/`,{
+  async getOutgoingsCountByMonth({commit}){
+    await axios.get(process.env.VUE_APP_API_BASE_URL+`outgoings/countByMonth/`,{
       headers:authHeader()
     }).then(res => {
       const count = Object.values(res.data[0].data);
@@ -55,24 +55,24 @@ export const actions = {
       commit('setOutgoingsCount',count);
     });
   },
-  createOutgoing({commit,rootGetters},outgoing){
+  async createOutgoing({commit,rootGetters},outgoing){
       if(!outgoing.outgoingPrice) calcOutgoingPrice(rootGetters,outgoing);
-      axios.post(process.env.VUE_APP_API_BASE_URL+'outgoings/',outgoing,{
+      await axios.post(process.env.VUE_APP_API_BASE_URL+'outgoings/',outgoing,{
         headers:authHeader()
       }).then(res => {
         commit('pushOutgoing',res.data);
       });
   },
-  updateOutgoing({commit,rootGetters},outgoing){
+  async updateOutgoing({commit,rootGetters},outgoing){
     calcOutgoingPrice(rootGetters,outgoing);
-    axios.put(process.env.VUE_APP_API_BASE_URL+`outgoings/${outgoing.id}`,{
+    await axios.put(process.env.VUE_APP_API_BASE_URL+`outgoings/${outgoing.id}`,{
       headers:authHeader()
     }).then(()=>{
       commit('setOutgoing',outgoing);
     });
   },
-  deleteOutgoingByID({commit},id){
-    axios.delete(process.env.VUE_APP_API_BASE_URL+`outgoings/${id}`,{
+  async deleteOutgoingByID({commit},id){
+    await axios.delete(process.env.VUE_APP_API_BASE_URL+`outgoings/${id}`,{
       headers:authHeader()
     }).then( () => {
       commit('deleteOutgoing',id);

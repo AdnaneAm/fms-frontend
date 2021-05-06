@@ -17,7 +17,6 @@ export default {
     }
   },
   created(){
-    console.log('started');
     // Get data 
     this.$store.dispatch('crops/getCrops');
     this.$store.dispatch('parcels/getParcels');

@@ -30,29 +30,29 @@ export const mutations = {
 };
 
 export const actions = {
-  getParcels({commit}){
-    return axios.get(process.env.VUE_APP_API_BASE_URL+'parcels/',{
+  async getParcels({commit}){
+    return await axios.get(process.env.VUE_APP_API_BASE_URL+'parcels/',{
       headers:authHeader()
     }).then(res => {
       commit('setParcels',res.data.results);
     })
   },
-  createParcel({commit},parcel){
-    return axios.post(process.env.VUE_APP_API_BASE_URL+'parcels/',parcel,{
+  async createParcel({commit},parcel){
+    return await axios.post(process.env.VUE_APP_API_BASE_URL+'parcels/',parcel,{
       headers:authHeader()
     }).then(res => {
       commit('pushParcel',res.data);
     })
   },
-  setParcel({commit},parcel){
-    return axios.patch(process.env.VUE_APP_API_BASE_URL+`parcels/${parcel.id}`,{
+  async setParcel({commit},parcel){
+    return await axios.patch(process.env.VUE_APP_API_BASE_URL+`parcels/${parcel.id}`,{
       headers:authHeader()
     }).then(() => {
       commit('setParcel',parcel);
     })
   },
-  deleteParcelByID({commit},id){
-    return axios.delete(process.env.VUE_APP_API_BASE_URL+`parcels/${id}`,{
+  async deleteParcelByID({commit},id){
+    return await axios.delete(process.env.VUE_APP_API_BASE_URL+`parcels/${id}`,{
       headers:authHeader()
     }).then(() => {
       commit('deleteParcel',id);

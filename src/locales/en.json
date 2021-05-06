@@ -176,8 +176,7 @@
     },
     "outgoings":{
       "title":"Outgoings",
-      "all":"Tous",
-      "farmers":"Ouvries"
+      "all":"All"
     },
     "addoutgoing":{
       "title":"Create an outgoing",

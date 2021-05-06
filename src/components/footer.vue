@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6">
-          2021 © Farm MS.
+          2021 © Ferma.
         </div>
         <div class="col-sm-6">
           <div class="text-sm-right d-none d-sm-block">

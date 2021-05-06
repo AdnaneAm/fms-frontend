@@ -30,29 +30,29 @@ export const mutations = {
 };
 
 export const actions = {
-  getCalibers({commit}){
-    return axios.get(process.env.VUE_APP_API_BASE_URL+'calibers/',{
+  async getCalibers({commit}){
+    return await axios.get(process.env.VUE_APP_API_BASE_URL+'calibers/',{
       headers:authHeader()
     }).then(res => {
       commit('setCalibers',res.data.results);
     })
   },
-  deleteCaliberByID({commit},id){
-    return axios.delete(process.env.VUE_APP_API_BASE_URL+`calibers/${id}`,{
+  async deleteCaliberByID({commit},id){
+    return await axios.delete(process.env.VUE_APP_API_BASE_URL+`calibers/${id}`,{
       headers:authHeader()
     }).then(() => {
       commit('deleteCaliber',id);
     })
   },
-  createCaliber({commit},caliber){
-    return axios.post(process.env.VUE_APP_API_BASE_URL+`calibers/`,caliber,{
+  async createCaliber({commit},caliber){
+    return await axios.post(process.env.VUE_APP_API_BASE_URL+`calibers/`,caliber,{
       headers:authHeader()
     }).then(() => {
       commit('pushCaliber',caliber);
     })
   },
-  setCaliber({commit},caliber){
-    return axios.patch(process.env.VUE_APP_API_BASE_URL+`calibers/${caliber.id}`,{
+  async setCaliber({commit},caliber){
+    return await axios.patch(process.env.VUE_APP_API_BASE_URL+`calibers/${caliber.id}`,{
       headers:authHeader()
     }).then(() => {
       commit('setCaliber',caliber);

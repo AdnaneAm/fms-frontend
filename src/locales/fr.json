@@ -20,10 +20,10 @@
         "text": "Tableau de bord"
       },  
       "farmers": {
-        "text": "Agriculteurs",
+        "text": "Ouvriers",
         "list":{
-          "farmers":"Liste d'agriculteurs",
-          "addfarmer":"Ajouter un agriculteur"
+          "farmers":"Liste d'ouvriers",
+          "addfarmer":"Ajouter un ouvrier"
       }
       },
       "crops": {
@@ -109,15 +109,15 @@
     },
     "pages":{
       "farmers":{
-        "title":"Agriculteurs"
+        "title":"Ouvriers"
       },
       "editfarmer":{
-        "title":"Modifier un agriculteur",
+        "title":"Modifier un ouvrier",
         "description":"Vous pouvez modifier n'importe quel champs, par lui donner une nouvelle valeur"
       },
       "addfarmer":{
-        "title":"Ajouter un agriculteur",
-        "description":"Pour créer un nouvel agriculteur, veuillez remplir les champs ci-dessous"
+        "title":"Ajouter un ouvrier",
+        "description":"Pour créer un nouvel ouvrier, veuillez remplir les champs ci-dessous"
       },
       "peachcrops":{
         "title":"Récoltes de pêche"
@@ -174,7 +174,8 @@
         "description":"Vous pouvez modifier le champs, par lui donner une nouvelle valeur"
       },
       "outgoings":{
-        "title":"Outgoings"
+        "title":"Outgoings",
+        "all":"Tous"
       },
       "addoutgoing":{
         "title":"Ajouter une charge",
@@ -243,7 +244,7 @@
       }
     },
     "forms":{
-      "farmer": "Agriculteur",
+      "farmer": "Ouvrier",
       "fullname":"Nom et prénom",
       "phone":"Numéro de téléphone",
       "cropboxesnumber":"Nombre de caisses",
@@ -282,8 +283,8 @@
     },
     "tables":{
       "farmers":{
-        "title":"Agriculteurs",
-        "farmerid":"ID Agriculteur",
+        "title":"Ouvriers",
+        "farmerid":"ID Ouvrier",
         "fullname":"Nom et prénom",
         "price":"prix",
         "relatedtofarmer":"A la tache",
@@ -346,7 +347,7 @@
       }
     },
     "stats":{
-      "farmersnumber":"Nombre d'agriculteurs",
+      "farmersnumber":"Nombre d'ouvriers",
       "dailycrops":"Récoltes quotidiennes",
       "totalexpenses":"Totale des dépenses",
       "previousperiod":"de la précedente fois",
