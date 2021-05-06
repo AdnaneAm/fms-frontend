@@ -1,7 +1,14 @@
 <template>
     <Layout>
         <PageHeader :title="title" :items="items" />
-        <outgoings-list :fields="fields" :items="outgoings" :options="options" />
+        <b-tabs fill>
+          <b-tab :title="$t('pages.outgoings.all')" active>
+            <outgoings-list :fields="fields" :items="outgoings('all')" :options="options" />
+          </b-tab>
+          <b-tab v-for="(expenseType, index) in expenseTypes" :key="`et-${index}`" :title="expenseType">
+            <outgoings-list :fields="fields" :items="outgoings(expenseType)" :options="options" />
+          </b-tab>
+        </b-tabs>
     </Layout>
 </template>
 
@@ -50,12 +57,21 @@
           title:this.$t('tables.outgoings.title')
         }
       },
-      outgoings(){
-        return this.$store.getters['outgoings/getOutgoings']
+      expenseTypes(){
+        return this.$store.getters['expensetypes/getExpenseTypes'].map(et => et.expenseType);
+      },
+    },
+    methods:{
+      outgoings(type='all'){
+        if(type == 'all'){
+          return this.$store.getters['outgoings/getOutgoings'];
+        }
+        return this.$store.getters['outgoings/getOutgoingsByType'](type);
       }
     },
     created(){
       this.$store.dispatch('outgoings/getOutgoings');
+      console.log(this.expenseTypes);
     }
   }
 </script>

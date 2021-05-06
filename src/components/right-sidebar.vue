@@ -148,48 +148,6 @@ export default {
         </div>
         <!-- Settings -->
         <hr class="mt-0" />
-        <h6 class="text-center mb-0">Choose Layouts</h6>
-
-        <div class="p-4">
-          <div class="mb-2">
-            <router-link
-              to="//http://nazox.vuejs-light-h.themesdesign.in/"
-              target="_blank"
-            >
-              <img
-                src="@/assets/images/layouts/layout-4.jpg"
-                class="img-fluid img-thumbnail"
-                alt
-              />
-            </router-link>
-          </div>
-
-          <div class="mb-2">
-            <router-link
-              to="//http://nazox.vuejs-dark-h.themesdesign.in/"
-              target="_blank"
-            >
-              <img
-                src="@/assets/images/layouts/layout-5.jpg"
-                class="img-fluid img-thumbnail"
-                alt
-              />
-            </router-link>
-          </div>
-
-          <div class="mb-2">
-            <router-link
-              to="//http://nazox.vuejs-rtl-h.themesdesign.in/"
-              target="_blank"
-            >
-              <img
-                src="@/assets/images/layouts/layout-6.jpg"
-                class="img-fluid img-thumbnail"
-                alt
-              />
-            </router-link>
-          </div>
-        </div>
       </div>
       <!-- end slimscroll-menu-->
     </div>

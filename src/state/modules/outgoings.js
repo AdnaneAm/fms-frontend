@@ -9,6 +9,9 @@ export const getters = {
   getOutgoings(state){
     return state.outgoings;
   },
+  getOutgoingsByType : (state) => (type) => {
+    return state.outgoings.filter( outgoing => outgoing.outgoingType == type);
+  },
   getOutgoingByID: (state) => (id) => {
     return state.outgoings.filter(outgoing => outgoing.id == id);
   },
