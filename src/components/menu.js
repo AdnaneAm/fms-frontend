@@ -74,6 +74,7 @@ export const menuItems = [
     {
         id: 3,
         label: 'menuitems.farmers.text',
+        icon:'ri-group-line',
         subItems: [
             {
                 id: 4,
@@ -150,7 +151,7 @@ export const menuItems = [
     {
         id:27,
         label:'menuitems.elements.list.parcels.text',
-        link:'',
+        icon:'ri-road-map-line',
         subItems:[
             {
                 id:28,
@@ -167,7 +168,7 @@ export const menuItems = [
     {
         id:30,
         label:'menuitems.elements.list.calibers.text',
-        link:'',
+        icon:'ri-indeterminate-circle-line',
         subItems:[
             {
                 id:31,
@@ -184,7 +185,7 @@ export const menuItems = [
     {
         id:33,
         label:'menuitems.elements.list.rootstocks.text',
-        link:'',
+        icon:'ri-leaf-line',
         subItems:[
             {
                 id:34,
@@ -201,7 +202,7 @@ export const menuItems = [
     {
         id:36,
         label:'menuitems.elements.list.varieties.text',
-        link:'',
+        icon:'ri-git-merge-line',
         subItems:[
             {
                 id:37,
