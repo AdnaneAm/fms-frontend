@@ -73,6 +73,7 @@ export const actions = {
           outgoingQuantity,
           outgoingUnitOfMesure,
           outgoingPrice:0,
+          createDate:crop.createDate
         }
         dispatch('outgoings/createOutgoing',outgoing,{root:true});
       })

@@ -3,7 +3,7 @@
         <PageHeader :title="title" :items="items" />
         <b-tabs fill>
           <b-tab :title="$t('pages.outgoings.all')" active>
-            <outgoings-list :fields="fields" :items="outgoings('all')" :options="options" />
+            <outgoings-list :fields="fields" :items="outgoings()" :options="options" />
           </b-tab>
           <b-tab v-for="(expenseType, index) in expenseTypes" :key="`et-${index}`" :title="expenseType">
             <outgoings-list :fields="fields" :items="outgoings(expenseType)" :options="options" />
