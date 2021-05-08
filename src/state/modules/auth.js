@@ -29,12 +29,20 @@ export const actions = {
     },
 
     // Logs in the current user.
-    async logIn({ commit }, user) {
+    async logIn({ commit, dispatch, getters }, user) {
         return await axios.post(process.env.VUE_APP_API_BASE_URL+'auth/login',user).then((response) => {
             const user = response.data;
             localStorage.setItem('auth-token',JSON.stringify(user.tokens.access.token));
             localStorage.setItem('refresh-token',JSON.stringify(user.tokens.refresh.token));
             commit('SET_CURRENT_USER', user)
+            const interval = setInterval(() => {
+                // Stop getting refresh tokens if user is logged out
+                if(!getters['loggedIn']){
+                    clearInterval(interval);
+                }
+                // Get the refresh token if the user is still logged in 
+                dispatch('refreshToken')
+            },30*60*1000)
             return user
         })
     },
@@ -73,10 +81,22 @@ export const actions = {
         commit('SET_CURRENT_USER', user)
         return user;
     },
+    // Set logged in user from local storage
     setLoggedInUser({commit}){
         const user = localStorage.getItem('auth.currentUser');
         commit('SET_CURRENT_USER',JSON.parse(user));
     },
+    // Refresh the access token when it expires 
+    async refreshToken(){
+        await axios.post(`${process.env.VUE_APP_API_BASE_URL}auth/refresh-tokens`,{
+            refreshToken:JSON.parse(localStorage.getItem('refresh-token'))
+        }).then ( ( {data} ) => {
+             localStorage.setItem('auth-token',JSON.stringify(data.access.token));
+             localStorage.setItem('refresh-token', JSON.stringify(data.refresh.token));
+        }).catch( err => {
+            console.log(err);
+        })
+    }
 }
 
 // ===

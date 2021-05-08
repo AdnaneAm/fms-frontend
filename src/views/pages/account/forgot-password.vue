@@ -80,7 +80,7 @@ export default {
                         </div>
 
                         <h4 class="font-size-18 mt-4">Reset Password</h4>
-                        <p class="text-muted">Reset your password to Nazox.</p>
+                        <p class="text-muted">Reset your password to Ferma.</p>
                       </div>
 
                       <div class="p-2 mt-5">
@@ -128,7 +128,7 @@ export default {
                           >Log in</router-link>
                         </p>
                         <p>
-                          © 2020 Nazox. Crafted with
+                          © 2020 Ferma. Crafted with
                           <i class="mdi mdi-heart text-danger"></i> by Themesdesign
                         </p>
                       </div>

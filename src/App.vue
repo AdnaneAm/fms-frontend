@@ -16,18 +16,26 @@ export default {
       return title ? `${title} | ${appConfig.title}` : appConfig.title;
     }
   },
+  computed: {
+    loggedIn() {
+      return this.$store.getters['auth/loggedIn']; 
+    }
+  },
   created(){
-    // Get data 
-    this.$store.dispatch('crops/getCrops');
-    this.$store.dispatch('parcels/getParcels');
-    this.$store.dispatch('calibers/getCalibers');
-    this.$store.dispatch('rootstocks/getRootstocks');
-    this.$store.dispatch('varieties/getVarieties');
-    this.$store.dispatch('expensetypes/getExpensetypes');
-    this.$store.dispatch('expenses/getExpenses');
-    this.$store.dispatch('outgoings/getOutgoings');
     // Set the logged in user from local storage in state
     this.$store.dispatch('auth/setLoggedInUser');
+    //If the user is authenticated get the data 
+    if(this.loggedIn){
+      this.$store.dispatch('crops/getCrops');
+      this.$store.dispatch('parcels/getParcels');
+      this.$store.dispatch('calibers/getCalibers');
+      this.$store.dispatch('rootstocks/getRootstocks');
+      this.$store.dispatch('varieties/getVarieties');
+      this.$store.dispatch('expensetypes/getExpensetypes');
+      this.$store.dispatch('expenses/getExpenses');
+      this.$store.dispatch('outgoings/getOutgoings');
+    }
+
   }
 };
 </script>

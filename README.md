@@ -1,4 +1,4 @@
-# Nazox- Vuejs admin template
+# Ferma- Vuejs admin template
 
 ## Project setup
 ```

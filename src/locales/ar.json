@@ -1,261 +1,348 @@
 {
-  "navbar": {
-    "search": {
-      "text": "بحث..."
+  "menuitems": {
+    "menu": {
+      "text": "القائمة"
     },
-    "dropdown": {
-      "megamenu": {
-        "text": "القائمة الضخمة",
-        "uicontent": {
-          "title": "مكونات واجهة المستخدم",
-          "list": {
-            "lightbox": "صندوق مضئ",
-            "rangeslider": "شريط التمرير",
-            "sweetalert": "تنبيه لطيف",
-            "rating": "تقييم",
-            "forms": "نماذج",
-            "tables": "الجداول",
-            "charts": "الرسوم البيانية"
+    "dashboard": {
+      "text": "لوحة التحكم"
+    },  
+    "farmers": {
+      "text": "العمال",
+      "list":{
+        "farmers":"لائحة العمال",
+        "addfarmer":"إضافة عامل"
+    }
+    },
+    "crops": {
+      "text": "المحاصيل",
+      "list":{
+        "peach":{
+          "text":"الخوخ",
+          "list":{
+            "peachcrops":"محاصيل الخوخ",
+            "addpeach":"إضافة محصول يومي"
           }
         },
-        "application": {
-          "title": "التطبيقات",
-          "list": {
-            "ecommerce": "التجارة الإلكترونية",
-            "calendar": "التقويم",
-            "email": "البريد الإلكتروني",
-            "projects": "المشاريع",
-            "tasks": "مهام",
-            "contacts": "جهات الاتصال"
+        "olives":{
+          "text":"الزيتون",
+          "list":{
+            "olivescrops":"محاصيل الزيتون",
+            "addolives":"إضافة محصول يومي"
           }
         },
-        "extrapages": {
-          "title": "صفحات اضافية",
-          "list": {
-            "lightsidebar": "شريط جانبي خفيف",
-            "compactsidebar": "شريط جانبي مضغوط",
-            "horizontallayout": "التخطيط الأفقي",
-            "maintenance": "اعمال صيانة",
-            "comingsoon": "قريبا",
-            "timeline": "الجدول الزمني",
-            "faqs": "الأسئلة الشائعة"
+        "almond":{
+          "text":"اللوز",
+          "list":{
+            "almondcrops":"محاصيل اللوز",
+            "addalmond":"إضافة محصول يومي"
           }
         }
-      },
-      "site": {
-        "list": {
-          "github": "جيثب",
-          "bitbucket": "Bitbucket",
-          "dribbble": "المراوغة",
-          "dropbox": "بصندوق الإسقاط",
-          "mailchimp": "بريد الشمبانزي",
-          "slack": "تثاقل"
-        }
-      },
-      "notification": {
-        "text": "إشعارات",
-        "subtext": "عرض الكل",
-        "order": {
-          "title": "تم تقديم طلبك",
-          "text": "إذا دمجت عدة لغات القواعد",
-          "time": "قبل 3 دقائق"
+      }
+    },
+    "expenses":{
+      "text":"النفقات",
+      "list":{
+          "expenses":"لائحة النفقات",
+          "addexpenses":"إضافة نفقة"
+      }
+    },
+    "expensetypes":{
+      "text":"أصناف النفقات",
+      "list":{
+        "expensetypes":"لائحة الأصناف",
+        "addexpensetype":"إضافة صنف"
+      }
+    },
+    "outgoings":{
+      "text":"المصاريف",
+      "list":{
+        "outgoings":"لائحة المصاريف",
+        "addoutgoing":"إضافة مصروف"
+      }
+    },
+    "elements":{
+      "text":"Eléments",
+      "list":{
+        "parcels":{
+          "text":"قطع الأراضي",
+          "list":{
+            "parcelslist":"لائحة القطع",
+            "addparcel":"إضافة قطعة"
+          }
         },
-        "james": {
-          "title": "جيمس لومير",
-          "text": "سيبدو الأمر مثل اللغة الإنجليزية المبسطة.",
-          "time": "منذ 1 ساعة"
+        "calibers":{
+          "text":"العيارات",
+          "list":{
+            "caliberslist":"لائحة العيارات",
+            "addcaliber":"إضافة عيار"
+          }
         },
-        "item": {
-          "title": "يتم شحن البند الخاص بك",
-          "text": "إذا دمجت عدة لغات القواعد",
-          "time": "قبل 3 دقائق"
+        "rootstocks":{
+          "text":"الجذور",
+          "list":{
+            "rootstockslist":"لائحة الجذور",
+            "addrootstock":"إضافة جذر"
+          }
         },
-        "salena": {
-          "title": "سالينا لايفيلد",
-          "text": "بصفتي صديقًا متشككًا في كامبريدج لأعمال الغرب.",
-          "time": "منذ 1 ساعة"
-        },
-        "button": "تحميل المزيد.."
-      },
-      "kevin": {
-        "text": "كيفن",
-        "list": {
-          "profile": "الملف الشخصي",
-          "mywallet": "محفظتي",
-          "settings": "إعدادات",
-          "lockscreen": "اقفل الشاشة",
-          "logout": "تسجيل خروج"
+        "varieties":{
+          "text":"أصناف المحاصيل",
+          "list":{
+            "varietieslist":"لائحة الأصناف",
+            "addvariety":"إضافة صنف"
+          }
         }
       }
     }
   },
-  "menuitems": {
-    "menu": {
-      "text": "قائمة طعام"
+  "pages":{
+    "farmers":{
+      "title":"العمال"
     },
-    "dashboard": {
-      "text": "لوحات المعلومات",
-      "badge": "3"
+    "editfarmer":{
+      "title":"تعديل عامل",
+      "description":"بإمكنك تغيير أي حقل، بإعطائه قيمة جديدة"
     },
-    "layouts": {
-      "text": "التخطيطات",
-      "list": {
-        "horizontal": "عرضي",
-        "lightsidebar": "شريط جانبي خفيف",
-        "compactsidebar": "شريط جانبي مضغوط",
-        "iconsidebar": "الشريط الجانبي للرموز",
-        "boxed": "تخطيط محاصر",
-        "vertical": "عمودي",
-        "lighttopbar": "شريط علوي خفيف"
-      }
+    "addfarmer":{
+      "title":"إضافة عامل",
+      "description":"لإضافة عامل جديد، المرجو ملأ كل الحقول أدناه"
     },
-    "apps": {
-      "text": "تطبيقات"
+    "peachcrops":{
+      "title":"محاصيل الخوخ"
     },
-    "farmers": {
-      "text": "المزارعين",
-      "list":{
-        "farmers":"لائحة المزارعين",
-        "addfarmer":"أضف مزارع"
+    "addpeachcrop":{
+      "title":"إضافة محصول الخوخ", 
+      "description":"لإضافة محصول جديد، المرجو ملأ كل الحقول أدناه"
+    },
+    "editpeachcrop":{
+      "title":"تعديل محصول الخوخ", 
+      "description":"بإمكنك تغيير أي حقل، بإعطائه قيمة جديدة"
+    },
+    "olivescrops":{
+      "title":"محاصيل الزيتون"
+    },
+    "addolivescrop":{
+      "title":"إضافة محصول الزيتون",
+      "description":"لإضافة عامل جديد، المرجو ملأ كل الحقول أدناه"
+    },
+    "editolivescrop":{
+      "title":"تعديل محصول الزيتون", 
+      "description":"بإمكنك تغيير أي حقل، بإعطائه قيمة جديدة"
+    },
+    "almondcrops":{
+      "title":"محاصيل اللوز"
+    },
+    "addalmondcrop":{
+      "title":"إضافة محصول اللوز",
+      "description":"لإضافة عامل جديد، المرجو ملأ كل الحقول أدناه"
+    },
+    "editalmondcrop":{
+      "title":"تعديل محصول اللوز", 
+      "description":"بإمكنك تغيير أي حقل، بإعطائه قيمة جديدة"
+    },
+    "expenses":{
+      "title":"النفقات"
+    },
+    "addexpense":{
+      "title":"إضافة نفقة"
+    },
+    "editexpense":{
+      "title":"تعديل نفقة", 
+      "description":"بإمكنك تغيير أي حقل، بإعطائه قيمة جديدة"
+    },
+    "expensetypes":{
+      "title":"أصناف النفقات"
+    },
+    "addexpensetype":{
+      "title":"إضافة صنف نفقة",
+      "description":"لإضافة صنف نفقة، المرجو ملأ الحقل أدناه"
+    },
+    "editexpensetype":{
+      "title":"تعديل صنف نفقة",
+      "description":"بإمكنك تغيير أي حقل، بإعطائه قيمة جديدة"
+    },
+    "outgoings":{
+      "title":"التكاليف",
+      "all":"الكل"
+    },
+    "addoutgoing":{
+      "title":"إضافة تكلفة",
+      "description":"لإضافة تكلفة جديدة، المرجو ملأ الحقول أدناه"
+    },
+    "editoutgoing":{
+      "title":"تعديل تكلفة",
+      "description":"بإمكنك تغيير أي حقل، بإعطائه قيمة جديدة"
+    },
+    "parcels":{
+      "title":"القطع الأرضية"
+    },
+    "addparcel":{
+      "title":"إضافة قطعة",
+      "description":"لإضافة قطعة جديدة، المرجو ملأ الحقل أدناه"
+    },
+    "editparcel":{
+      "title":"تعديل قطعة أرضية",
+      "description":"بإمكنك تغيير أي حقل، بإعطائه قيمة جديدة"
+    },
+    "calibers":{
+      "title":"العيارات"
+    },
+    "addcaliber":{
+      "title":"إضافة عيار",
+      "description":"لإضافة عيار جديد، المرجو ملأ الحقل أدناه"
+    },
+    "editcaliber":{
+      "title":"تعديل عيار",
+      "description":"بإمكنك تغيير أي حقل، بإعطائه قيمة جديدة"
+    },
+    "rootstocks":{
+      "title":"الجذور"
+    },
+    "addrootstock":{
+      "title":"إضافة جذر",
+      "description":"لإضافة جذر جديد المرجو ملأ الحقل أدناه"
+    },
+    "editrootstock":{
+      "title":"تعديل جذر",
+      "description":"بإمكنك تغيير أي حقل، بإعطائه قيمة جديدة"
+    },
+    "varieties":{
+      "title":"أصناف المحصولات"
+    },
+    "addvariety":{
+      "title":"إضافة صنف",
+      "description":"لإضافة صنف جديد، المرجو ملأ الحقول أدناه"
+    },
+    "editvariety":{
+      "title":"تعديل صنف",
+      "description":"بإمكنك تغيير أي حقل، بإعطائه قيمة جديدة"
+    },
+    "register":{
+      "title":"إنشاء حساب",
+      "description":"أنشأ حسابك الآن",
+      "success":"تم التسجيل بنجاح",
+      "alreadymessage":"هل تمتلك حسابا ؟ ",
+      "login":"تسجيل الدخول"
+    },
+    "login":{
+      "title":"مرحبا بعودتك",
+      "description":"سجل الدخول، كي تستطيع الولوج إلى لوحة التحكم",
+      "registermessage":"لم تنشأ حسابك بعد ؟ ",
+      "register":"إنشاء حساب"
     }
+  },
+  "forms":{
+    "farmer": "عامل",
+    "fullname":"الإسم الكامل",
+    "cropboxesnumber":"عدد الصناديق",
+    "cropparcel":"القطعة",
+    "cropvariety":"الصنف",
+    "croprootstock":"الجذر",
+    "cropcaliber":"العيار",
+    "cropexpenseprice":"الثمن",
+    "caliber":"العيار",
+    "parcel":"القطعة",
+    "rootstock":"الجذر",
+    "variety":"الصنف",
+    "roottype":"المحصول الأب",
+    "peach":"الخوخ",
+    "olives":"الزيتون",
+    "almond":"اللوز",
+    "relatedtofarmers":"أجرة باليوم",
+    "expenselabel":"ملصق النفقة",
+    "expensetype":"صنف النفقة",
+    "expensemeasureunit":"وحدة القياس",
+    "outgoinglabel":"ملصق التكلفة",
+    "outgoingtype":"صنف التكلفة",
+    "outgoingmeasureunit":"وحدة القياس",
+    "quantity":"الكمية",
+    "cropdate":"حصّّل بتاريخ",
+    "email":{
+      "text":"البريد الالكتروني",
+      "placeholder":"أدخل بريدك الالكتروني"
     },
-    "chat": {
-      "text": "دردشة",
-      "badge": "جديد"
+    "password":{
+      "text":"كلمة المرور",
+      "placeholder":"أدخل كلمة المرور"
     },
-    "ecommerce": {
-      "text": "التجارة الإلكترونية",
-      "list": {
-        "products": "منتجات",
-        "productdetail": "تفاصيل المنتج",
-        "orders": "الطلب #٪ s",
-        "customers": "الزبائن",
-        "cart": "عربة التسوق",
-        "checkout": "الدفع",
-        "shops": "محلات",
-        "addproduct": "أضف منتج"
-      }
+    "login":"تسجيل الدخول",
+    "register":"إنشاء حساب"
+  },
+  "tables":{
+    "farmers":{
+      "title":"العمال",
+      "farmerid":"معرف العامل",
+      "fullname":"الإسم الكامل",
+      "price":"أجر العامل",
+      "relatedtofarmer":"أجرة يومية",
+      "createdate":"أنشأ بتاريخ"
     },
-    "email": {
-      "text": "البريد الإلكتروني",
-      "list": {
-        "inbox": "صندوق الوارد",
-        "reademail": "قراءة البريد الإلكتروني"
-      }
+    "crops":{
+      "title":"المحاصيل",
+      "id":"معرف المحصول",
+      "parcel":"القطعة",
+      "variety":"الصنف",
+      "rootstock":"الجذر",
+      "caliber":"العيار",
+      "boxesnumber":"عدد الصناديق"
     },
-    "kanban": {
-      "text": "مجلس كانبان"
+    "expenses":{
+      "title":"النفقة",
+      "id":"معرف النفقة",
+      "type":"الصنف",
+      "label":"الملصق",
+      "unit":"وحدة القياس",
+      "price":"السعر",
+      "date":"أنشأ بتاريخ"
     },
-    "pages": {
-      "text": "الصفحات"
+    "expensetypes":{
+      "title":"أصناف النفقات",
+      "id":"معرف الصنف",
+      "expensetype":"الصنف",
+      "date":"أنشأ بتاريخ"
     },
-    "authentication": {
-      "text": "المصادقة",
-      "list": {
-        "login": "تسجيل الدخول",
-        "register": "تسجيل",
-        "recoverpwd": "إستعادة كلمة المرور",
-        "lockscreen": "اقفل الشاشة"
-      }
+    "outgoings":{
+      "title":"التكاليف",
+      "id":"معرف التكلفة",
+      "label":"الملصق",
+      "type":"الصنف",
+      "quantity":"الكمية",
+      "unit":"وحدة القياس",
+      "price":"السعر",
+      "date":"أنشأ بتاريخ"
     },
-    "utility": {
-      "text": "خدمة",
-      "list": {
-        "starter": "صفحة المبتدئين",
-        "maintenance": "اعمال صيانة",
-        "comingsoon": "قريبا",
-        "timeline": "الجدول الزمني",
-        "faqs": "الأسئلة الشائعة",
-        "pricing": "التسعير",
-        "error404": "خطأ 404",
-        "error500": "خطأ 500"
-      }
+    "calibers":{
+      "title":"العيارات",
+      "id":"معرف العيار",
+      "caliber":"العيار"
     },
-    "components": {
-      "text": "مكونات"
+    "parcels":{
+      "title":"القطع الأرضية",
+      "id":"معرف القطعة",
+      "parcel":"القطعة"
     },
-    "uielements": {
-      "text": "عناصر واجهة المستخدم",
-      "list": {
-        "alerts": "التنبيهات",
-        "buttons": "أزرار",
-        "cards": "البطاقات",
-        "carousel": "دائري",
-        "dropdowns": "هبوط قطرة",
-        "grid": "جريد",
-        "images": "صور",
-        "modals": "مشروط",
-        "rangeslider": "شريط التمرير",
-        "progressbar": "أشرطة التقدم",
-        "sweetalert": "تنبيه لطيف",
-        "tabs": "علامات التبويب والأكورديون",
-        "typography": "الطباعة",
-        "video": "فيديو",
-        "general": "جنرال لواء",
-        "lightbox": "صندوق مضئ",
-        "sessiontimeout": "مهلة جلسة",
-        "rating": "تقييم",
-        "notifications": "إشعارات"
-      }
+    "rootstocks":{
+      "title":"الجذور",
+      "id":"معرف الجذر",
+      "rootstock":"الجذر"
     },
-    "forms": {
-      "farmer": "المزارع",
-      "text": "نماذج",
-      "badge": "8",
-      "list": {
-        "elements": "عناصر النموذج",
-        "validation": "التحقق من صحة النموذج",
-        "advanced": "نموذج متقدم",
-        "editor": "محرر النماذج",
-        "fileupload": "تحميل ملف النموذج",
-        "wizard": "معالج النماذج",
-        "mask": "قناع النموذج"
-      }
-    },
-    "tables": {
-      "text": "الجداول",
-      "list": {
-        "basic": "الجداول الأساسية",
-        "advanced": "جدول متقدم"
-      }
-    },
-    "charts": {
-      "text": "الرسوم البيانية",
-      "list": {
-        "apex": "مخطط أبيكس",
-        "chartjs": "مخطط Chartjs",
-        "chartist": "مخطط رسومي",
-        "echart": "مخطط E"
-      }
-    },
-    "icons": {
-      "text": "أيقونات",
-      "list": {
-        "remix": "أيقونات ريمكس",
-        "materialdesign": "التصميم المادي",
-        "dripicons": "Dripicons",
-        "fontawesome": "الخط رائع"
-      }
-    },
-    "maps": {
-      "text": "خرائط",
-      "list": {
-        "googlemap": "خرائط جوجل",
-        "leaflet": "خرائط النشرة"
-      }
-    },
-    "multilevel": {
-      "text": "متعدد المستويات",
-      "list": {
-        "level1": {
-          "1": "المستوى 1.1",
-          "2": "المستوى 1.2",
-          "level2": {
-            "1": "المستوى 2.1",
-            "2": "المستوى 2.2"
-          }
-        }
-      }
+    "varieties":{
+      "title":"أصناف المحاصيل",
+      "id":"معرف الصنف",
+      "variety":"الصنف",
+      "type":"المحصول الأب"
     }
+  },
+  "stats":{
+    "farmersnumber":"عدد العمال",
+    "dailycrops":"المحاصيل اليومية",
+    "totalexpenses":"مجموع النفقات",
+    "previousperiod":"آخر مرة",
+    "cropsstats":"إحصائيات المحاصبل",
+    "almondcrops":"محاصيل اللوز",
+    "peachcrops":"محاصيل الخوخ",
+    "olivescrops":"محاصيل الزيتون",
+    "expensesanalytics":"تحاليل النفقات",
+    "thismonth":"هذا الشهر",
+    "thisyear":"هذه السنة"
   }
 }

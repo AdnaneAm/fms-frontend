@@ -26,6 +26,10 @@
                    :placeholder="field.label"
                    :options="field.options"
                    :value="null"
+                   @change="field.affects && $emit('select-change', {
+                     field:field.affects,
+                     value:item[field.key]
+                   })"
                   >
                   </b-form-select>
                   <b-form-checkbox

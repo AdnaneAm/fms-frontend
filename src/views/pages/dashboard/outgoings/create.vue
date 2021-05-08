@@ -1,7 +1,10 @@
 <template>
     <Layout>
         <PageHeader :title="title" :items="items" />
-        <outgoing-form :options="options" />
+        <outgoing-form 
+          :options="options"
+          @select-change="logVal"
+         />
     </Layout>
 </template>
 
@@ -33,10 +36,10 @@
         ]
       },
       outgoingtypes(){
-        return this.$store.getters['expensetypes/getExpenseTypes']
+        return this.$store.getters['expensetypes/getExpenseTypes'];
       },
       expenses(){
-        return this.$store.getters['expenses/getExpenses']
+        return this.$store.getters['expenses/getExpenses'];
       },
       options(){
         return {
@@ -54,6 +57,21 @@
           },
           formFields:[
             {
+              id:'outgoing-type',
+              key:'outgoingType',
+              label:'forms.outgoingtype',
+              labelFor:'outgoing-type',
+              type:'select',
+              affects: 'outgoingLabel',
+              options:[
+                {
+                  value:null,
+                  text:'Choose an outgoing type'
+                },
+                ...this.outgoingtypes.map(outgoingType => outgoingType.expenseType)
+              ]
+            },
+            {
               id:'outgoing-label',
               key:'outgoingLabel',
               label:'forms.outgoinglabel',
@@ -65,20 +83,6 @@
                   value:null,
                 },
                 ...this.expenses.map(expense => expense.expenseLabel)
-              ]
-            },
-            {
-              id:'outgoing-type',
-              key:'outgoingType',
-              label:'forms.outgoingtype',
-              labelFor:'outgoing-type',
-              type:'select',
-              options:[
-                {
-                  value:null,
-                  text:'Choose an outgoing type'
-                },
-                ...this.outgoingtypes.map(outgoingType => outgoingType.expenseType)
               ]
             },
             {
@@ -97,6 +101,11 @@
             },
           ]
         }
+      }
+    },
+    methods:{
+      logVal(data){
+        console.log(data);
       }
     },
     created(){

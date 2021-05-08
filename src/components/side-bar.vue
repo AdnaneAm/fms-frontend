@@ -83,10 +83,14 @@ export default {
       }
     }
   },
-  created(){
-    this.$store.dispatch('auth/validate').then(({user}) => {
+  async created(){
+    await this.$store.dispatch('auth/validate').then(({user}) => {
       this.userRole = user.role;
     });
+    if(this.userRole != 'admin'){
+      console.log('filtering ...');
+      this.menuItems = this.menuItems.filter( item => item.requireAdmin == null);
+    }
   },
   methods: {
     /**
@@ -188,7 +192,7 @@ export default {
               {{ $t(item.label) }}
             </li>
             <!--end Layouts menu -->
-            <li v-if="(!item.isTitle && !item.isLayout) && ((!item.requireAdmin || userRole == 'admin') )" :key="item.id">
+            <li v-if="(!item.isTitle && !item.isLayout)" :key="item.id">
               <a
                 v-if="hasItems(item)"
                 href="javascript:void(0);"

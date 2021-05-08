@@ -149,7 +149,7 @@ export default {
           </template>
           <!-- item-->
           <div class="dropdown-divider"></div>
-          <a @click="logOut" class="dropdown-item text-danger">
+          <a @click="logOut" class="dropdown-item text-danger" style="cursor:pointer">
             <i class="ri-shut-down-line align-middle mr-1 text-danger"></i>
             {{ $t('navbar.dropdown.kevin.list.logout') }}
           </a>
