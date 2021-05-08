@@ -40,9 +40,11 @@ export const actions = {
                 if(!getters['loggedIn']){
                     clearInterval(interval);
                 }
-                // Get the refresh token if the user is still logged in 
-                dispatch('refreshToken')
-            },30*60*1000)
+                else{
+                    // Get the refresh token if the user is still logged in 
+                    dispatch('refreshToken')
+                }
+            },29*60*1000)
             return user
         })
     },
@@ -91,6 +93,7 @@ export const actions = {
         await axios.post(`${process.env.VUE_APP_API_BASE_URL}auth/refresh-tokens`,{
             refreshToken:JSON.parse(localStorage.getItem('refresh-token'))
         }).then ( ( {data} ) => {
+             console.log("success");
              localStorage.setItem('auth-token',JSON.stringify(data.access.token));
              localStorage.setItem('refresh-token', JSON.stringify(data.refresh.token));
         }).catch( err => {
