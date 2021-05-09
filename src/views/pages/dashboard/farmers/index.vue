@@ -56,7 +56,7 @@
       }
     },
     created(){
-      this.$store.dispatch('outgoings/getExpenses');
+      this.$store.dispatch('expenses/getExpenses');
     }
   }
 </script>

@@ -57,6 +57,7 @@ export const actions = {
   },
   async createOutgoing({commit,rootGetters},outgoing){
       if(!outgoing.outgoingPrice) calcOutgoingPrice(rootGetters,outgoing);
+      outgoing.outgoingUnitOfMesure = outgoingMeasureUnit(rootGetters, outgoing);
       await axios.post(process.env.VUE_APP_API_BASE_URL+'outgoings/',outgoing,{
         headers:authHeader()
       }).then(res => {
@@ -83,4 +84,8 @@ const calcOutgoingPrice = (rootGetters,outgoing) =>{
   // Get the expense price value 
   const expensePrice = rootGetters['expenses/getExpenseByLabel'](outgoing.outgoingLabel).price;
   outgoing.outgoingPrice = parseInt(outgoing.outgoingQuantity)*expensePrice;
+}
+const outgoingMeasureUnit = (rootGetters,outgoing) => {
+  const measureUnit = rootGetters['expenses/getExpenseByLabel'](outgoing.outgoingLabel).expenseMesureUnit;
+  return measureUnit;
 }

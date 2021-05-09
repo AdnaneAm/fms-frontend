@@ -3,7 +3,7 @@
         <PageHeader :title="title" :items="items" />
         <outgoing-form 
           :options="options"
-          @select-change="logVal"
+          @select-change="updateDependantField"
          />
     </Layout>
 </template>
@@ -21,6 +21,7 @@
     data() {
       return {
         title: 'pages.addoutgoing.title',
+        type:'',
       }
     },
     computed:{
@@ -39,7 +40,7 @@
         return this.$store.getters['expensetypes/getExpenseTypes'];
       },
       expenses(){
-        return this.$store.getters['expenses/getExpenses'];
+        return this.$store.getters['expenses/getExpensesByType'](this.type);
       },
       options(){
         return {
@@ -92,20 +93,13 @@
               labelFor:'outgoing-quantity',
               type:'number'
             },
-            {
-              id:'outgoing-measure-unit',
-              key:'outgoingUnitOfMesure',
-              label:'forms.outgoingmeasureunit',
-              labelFor:'outgoing-measure-unit',
-              type:'text'
-            },
           ]
         }
       }
     },
     methods:{
-      logVal(data){
-        console.log(data);
+      updateDependantField(data){
+        this.type = data.value;
       }
     },
     created(){

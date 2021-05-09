@@ -21,14 +21,15 @@ export default {
       return this.$store.getters['auth/loggedIn']; 
     }
   },
-  created(){
+  async created(){
     // Set the logged in user from local storage in state
     this.$store.dispatch('auth/setLoggedInUser');
     //If the user is authenticated get the data 
     if(this.loggedIn){
-      this.$store.dispatch('crops/getCrops');
+      // Awaiting for the first request so that if the access token expires it gets the new one before executing the other api calls
+      await this.$store.dispatch('crops/getCrops');
       this.$store.dispatch('parcels/getParcels');
-      this.$store.dispatch('calibers/getCalibers');
+      this.$store.dispatch('calibers/getCalibers'); 
       this.$store.dispatch('rootstocks/getRootstocks');
       this.$store.dispatch('varieties/getVarieties');
       this.$store.dispatch('expensetypes/getExpensetypes');

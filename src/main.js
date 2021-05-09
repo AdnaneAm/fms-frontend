@@ -6,7 +6,7 @@ import Vuelidate from 'vuelidate'
 import VueSweetalert2 from 'vue-sweetalert2';
 import VueMask from 'v-mask'
 import VueYoutube from 'vue-youtube'
-
+import interceptorsSetup from '@/helpers/interceptors'
 import vco from "v-click-outside"
 
 import router from './router'
@@ -16,7 +16,7 @@ import i18n from './i18n'
 import "@/assets/scss/app.scss";
 
 
-
+interceptorsSetup()
 Vue.config.productionTip = false
 Vue.use(VueYoutube)
 Vue.use(BootstrapVue)

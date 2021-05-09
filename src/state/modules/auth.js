@@ -89,15 +89,14 @@ export const actions = {
         commit('SET_CURRENT_USER',JSON.parse(user));
     },
     // Refresh the access token when it expires 
-    async refreshToken(){
-        await axios.post(`${process.env.VUE_APP_API_BASE_URL}auth/refresh-tokens`,{
+     refreshToken(){
+        return axios.post(`${process.env.VUE_APP_API_BASE_URL}auth/refresh-tokens`,{
             refreshToken:JSON.parse(localStorage.getItem('refresh-token'))
         }).then ( ( {data} ) => {
-             console.log("success");
              localStorage.setItem('auth-token',JSON.stringify(data.access.token));
              localStorage.setItem('refresh-token', JSON.stringify(data.refresh.token));
         }).catch( err => {
-            console.log(err);
+            Promise.reject(err);
         })
     }
 }
