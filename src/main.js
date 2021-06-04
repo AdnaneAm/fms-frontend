@@ -14,9 +14,12 @@ import store from '@/state/store'
 import i18n from './i18n'
 
 import "@/assets/scss/app.scss";
+import Buefy from 'buefy'
 
 
 interceptorsSetup()
+
+Vue.use(Buefy)
 Vue.config.productionTip = false
 Vue.use(VueYoutube)
 Vue.use(BootstrapVue)

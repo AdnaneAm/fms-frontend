@@ -107,7 +107,11 @@
         }
       }
     },
+
     "pages":{
+      "home":{
+        "title":"Accueil"
+      },
       "farmers":{
         "title":"Ouvriers"
       },
@@ -242,6 +246,13 @@
         "registermessage":"Vous n'avez pas de compte? ",
         "register":"S'inscrire"
       }
+    },
+    "pick": {
+      "farmer": "Choisir un/des ouvrier(s)",
+      "parcel": "Choisir une/des parcelle(s)",
+      "variety": "Choisir une/des variété(s)",
+      "rootstock": "Choisir un porte-greffe",
+      "caliber": "Choisir un/des callibre(s)"
     },
     "forms":{
       "farmer": "Ouvrier",

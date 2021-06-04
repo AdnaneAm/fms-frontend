@@ -59,9 +59,8 @@
             cropType:'peach',
             cropParcel:'',
             cropVariety:'',
-            cropNumberOfBoxes:0,
             cropRootStock:'',
-            cropCaliber:0,
+            cropCaliber:'',
             cropExpensePrice:0
           },
           formFields:[
@@ -69,13 +68,10 @@
               id:'crop-farmer',
               key:'cropFarmer',
               label:'forms.farmer',
+              placeholder: 'pick.farmer',
               labelFor:'farmer',
               type:'select',
               options:[
-                {
-                  text:'Choose a farmer',
-                  value:null
-                },
                 ...this.farmers.map(farmer => farmer.expenseLabel)
               ]
             },
@@ -84,12 +80,10 @@
               key:'cropParcel',
               label:'forms.cropparcel',
               labelFor:'parcel',
+              placeholder: 'pick.parcel',
               type:'select',
+              multi:false,
               options:[
-                {
-                  text:'Choose a parcel',
-                  value:null
-                },
                 ...this.parcels.map(parcel => parcel.parcel)
               ]
             },
@@ -98,12 +92,10 @@
               key:'cropVariety',
               label:'forms.cropvariety',
               labelFor:'variety',
+              placeholder: 'pick.variety',
+              multi:false,
               type:'select',
               options:[
-                {
-                  text:'Choose a variety',
-                  value:null
-                },
                 ...this.varieties.map(variety => variety.variety)
               ]
             },
@@ -112,12 +104,10 @@
               key:'cropRootStock',
               label:'forms.croprootstock',
               labelFor:'root-stock',
+              placeholder: 'pick.rootstock',
+              multi:false,
               type:'select',
               options:[
-                {
-                  text:'Choose a rootstock',
-                  value:null
-                },
                 ...this.rootstocks.map(rootstock => rootstock.rootStock)
               ]
             },
@@ -126,21 +116,12 @@
               key:'cropCaliber',
               label:'forms.cropcaliber',
               labelFor:'caliber',
+              multi:true,
+              placeholder: 'pick.caliber',
               type:'select',
               options:[
-                {
-                  text:'Choose a caliber',
-                  value:null
-                },
                 ...this.calibers.map(caliber => caliber.caliber)
               ]
-            },
-            {
-              id:'crop-boxes-number',
-              key:'cropNumberOfBoxes',
-              label:'forms.cropboxesnumber',
-              labelFor:'boxes-num',
-              type:'number',
             },
             {
               id:'create-date',

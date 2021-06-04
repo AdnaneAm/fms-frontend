@@ -68,12 +68,20 @@ export default [
         },
     },
     {
+        path: '/dashboard',
+        name: 'dashboard',
+        meta: {
+            authRequired: true,
+        },
+        component: () => import('../views/pages/dashboard/index')
+    },
+    {
         path: '/',
         name: 'home',
         meta: {
             authRequired: true,
         },
-        component: () => import('../views/pages/dashboard/index')
+        component: () => import('../views/pages/dashboard/home/index')
     },
     /**
      * Farmers routes

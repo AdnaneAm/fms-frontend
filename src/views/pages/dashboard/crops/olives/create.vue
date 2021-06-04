@@ -56,7 +56,6 @@
             cropParcel:'',
             cropVariety:'',
             cropNumberOfBoxes:0,
-            cropRootStock:'',
             cropExpensePrice:0
           },
           formFields:[
@@ -65,12 +64,9 @@
               key:'cropFarmer',
               label:'forms.farmer',
               labelFor:'farmer',
+              placeholder: 'pick.farmer',
               type:'select',
               options:[
-                {
-                  text:'Choose a farmer',
-                  value:null
-                },
                 ...this.farmers.map(farmer => farmer.expenseLabel)
               ]
             },
@@ -79,12 +75,10 @@
               key:'cropParcel',
               label:'forms.cropparcel',
               labelFor:'parcel',
+              placeholder: 'pick.parcel',
+              multi: true,
               type:'select',
               options:[
-                {
-                  text:'Choose a parcel',
-                  value:null
-                },
                 ...this.parcels.map(parcel => parcel.parcel)
               ]
             },
@@ -93,35 +87,12 @@
               key:'cropVariety',
               label:'forms.cropvariety',
               labelFor:'variety',
+              placeholder: 'pick.variety',
+              multi: true,
               type:'select',
               options:[
-                {
-                  text:'Choose a variety',
-                  value:null
-                },
                 ...this.varieties.map(variety => variety.variety)
               ]
-            },
-            {
-              id:'crop-rootstock',
-              key:'cropRootStock',
-              label:'forms.croprootstock',
-              labelFor:'root-stock',
-              type:'select',
-              options:[
-                {
-                  text:'Choose a rootstock',
-                  value:null
-                },
-                ...this.rootstocks.map(rootstock => rootstock.rootStock)
-              ]
-            },
-            {
-              id:'crop-boxes-number',
-              key:'cropNumberOfBoxes',
-              label:'forms.cropboxesnumber',
-              labelFor:'boxes-num',
-              type:'number',
             },
             {
               id:'create-date',

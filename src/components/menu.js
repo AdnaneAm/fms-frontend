@@ -8,7 +8,7 @@ export const menuItems = [
         id: 2,
         label: 'menuitems.dashboard.text',
         icon: 'ri-dashboard-line',
-        link: '/'
+        link: '/dashboard'
     },
     {
         id: 6,

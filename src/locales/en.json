@@ -108,6 +108,9 @@
     }
   },
   "pages":{
+    "home":{
+      "title":"Home"
+    },
     "farmers":{
       "title":"Farmers"
     },

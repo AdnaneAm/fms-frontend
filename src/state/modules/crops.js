@@ -52,31 +52,26 @@ export const actions = {
     })
   },
   async createCrop({commit,rootGetters,dispatch},crop){
+      const crops = createCropItems(rootGetters, crop)
     // initialise outgoing qty and mesure unit
-    let outgoingQuantity = 1,outgoingUnitOfMesure = 'jour';
-    const {expenseRelatedToFarmers,price} = rootGetters['expenses/getExpenseByLabel'](crop.cropFarmer);
-      if(expenseRelatedToFarmers) {
-        crop.cropExpensePrice = price * crop.cropNumberOfBoxes
-        outgoingQuantity = crop.cropNumberOfBoxes;
-        outgoingUnitOfMesure = 'caisse';
-      } else {
-        crop.cropExpensePrice = 0
-      }
-       await axios.post(process.env.VUE_APP_API_BASE_URL+'crops/', crop,{
-        headers:authHeader()
-      }).then(res => {
-        commit('pushcrop',res.data);
-        // Create outgoing
-        const outgoing = {
-          outgoingLabel:crop.cropFarmer,
-          outgoingType:'farmer',
-          outgoingQuantity,
-          outgoingUnitOfMesure,
-          outgoingPrice:0,
-          createDate:crop.createDate
-        }
-        dispatch('outgoings/createOutgoing',outgoing,{root:true});
-      })
+      crops.forEach(cropElement => {
+        axios.post(process.env.VUE_APP_API_BASE_URL+'crops/', cropElement,{
+          headers:authHeader()
+        }).then(res => {
+          commit('pushcrop',res.data);
+          // Create outgoing
+          const outgoing = {
+            outgoingLabel:cropElement.cropFarmer,
+            outgoingType:'farmer',
+            outgoingQuantity: cropElement.cropNumberOfBoxes,
+            outgoingUnitOfMesure: cropElement.paymentMethod,
+            outgoingPrice:cropElement.cropExpensePrice,
+            createDate:cropElement.createDate
+          }
+          dispatch('outgoings/createOutgoing',outgoing,{root:true});
+        })
+      });
+      
   },
   async setCrop({commit,rootGetters},crop){
     const {expenseRelatedToFarmers,price} = rootGetters['expenses/getExpenseByLabel'](crop.cropFarmer);
@@ -99,3 +94,46 @@ export const actions = {
     })
   }
 };
+
+
+const createCropItems = (rootGetters, item) => {
+  const {price} = rootGetters['expenses/getExpenseByLabel'](item.pme);
+  const crops = []
+  if(item.cropType == "peach") {
+    item.calibers.forEach(caliber => {
+      if(caliber.value && caliber.value > 0) {
+        const crop = {
+          paymentMethod: item.pme,
+          cropFarmer: Array.isArray(item.cropFarmer) ? item.cropFarmer.join(",") : item.cropFarmer,
+          cropType:item.cropType,
+          cropParcel:item.cropParcel,
+          cropVariety:item.cropVariety,
+          cropRootStock:item.cropRootStock,
+          cropCaliber:caliber.key,
+          cropNumberOfBoxes: caliber.value,
+          cropExpensePrice: item.pme == "Jours" ? ( price * item.cropFarmer.length ) / item.calibers.length : (price * caliber.value)
+        }
+        crops.push(crop)
+    }
+
+    });
+  } else {
+    const elements = item.olivesCases
+    Object.keys(elements).forEach(key => {
+      if(elements[key].value && elements[key].value > 0) {
+        const crop = {
+          paymentMethod: item.pme,
+          cropFarmer: Array.isArray(item.cropFarmer) ? item.cropFarmer.join(",") : item.cropFarmer,
+          cropType:item.cropType,
+          cropParcel:elements[key].parcel,
+          cropVariety:elements[key].variety,
+          cropRootStock:item.cropRootStock,
+          cropNumberOfBoxes: elements[key].value,
+          cropExpensePrice: item.pme == "Jours" ? ( price * item.cropFarmer.length ) / Object.keys(item.olivesCases).length : (price * elements[key].value)
+        }
+        crops.push(crop)
+      }
+    })
+  }
+  return crops
+}
