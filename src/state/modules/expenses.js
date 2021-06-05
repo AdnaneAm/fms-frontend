@@ -54,10 +54,6 @@ export const actions = {
     });
   },
   async createExpense({commit},expense){
-    expense.expenseType == 'farmer' ?
-      (expense.expenseRelatedToFarmers == true ? 
-        expense.expenseMesureUnit = 'caisse'
-        : expense.expenseMesureUnit = 'jour'):'';
     await axios.post(process.env.VUE_APP_API_BASE_URL+`expenses/`, expense,{
       headers:authHeader()
     }).then(expense => {

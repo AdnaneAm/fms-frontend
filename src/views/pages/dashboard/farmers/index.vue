@@ -34,9 +34,7 @@
       },
       fields(){
         return [
-          { key: "expenseLabel", sortable: true, label:this.$t('tables.farmers.fullname')},
-          { key: "price", sortable: false, label: this.$t('tables.farmers.price') },
-          { key: "expenseRelatedToFarmers", sortable: false, label: this.$t('tables.farmers.relatedtofarmer') },
+          { key: "ouvrier", sortable: true, label:this.$t('tables.farmers.fullname')},
           { key: "createDate", sortable: false, label: this.$t('tables.farmers.createdate') },
           { key: "action" }
         ]
@@ -44,7 +42,7 @@
       options(){
         return {
           editRouteName:'edit-farmer',
-          deleteActionName:'expenses/deleteExpenseByID',
+          deleteActionName:'ouvrier/deleteOuvrierByID',
           title:this.$t('tables.farmers.title')
         }
       },
@@ -52,11 +50,11 @@
        * Farmers list
       */
       farmers(){
-        return this.$store.getters['expenses/getExpensesByType']('farmer');
+        return this.$store.getters['ouvrier/getOuvriers'];
       }
     },
     created(){
-      this.$store.dispatch('expenses/getExpenses');
+      this.$store.dispatch('ouvrier/getOuvriers');
     }
   }
 </script>

@@ -65,10 +65,6 @@
               type:'select',
               affects: 'outgoingLabel',
               options:[
-                {
-                  value:null,
-                  text:'Choose an outgoing type'
-                },
                 ...this.outgoingtypes.map(outgoingType => outgoingType.expenseType)
               ]
             },
@@ -79,10 +75,6 @@
               labelFor:'outgoing-label',
               type:'select',
               options:[
-                {
-                  text:'Choose a label',
-                  value:null,
-                },
                 ...this.expenses.map(expense => expense.expenseLabel)
               ]
             },

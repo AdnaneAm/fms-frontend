@@ -60,17 +60,17 @@ export const actions = {
         }).then(res => {
           commit('pushcrop',res.data);
           // Create outgoing
-          const outgoing = {
-            outgoingLabel:cropElement.cropFarmer,
-            outgoingType:'farmer',
-            outgoingQuantity: cropElement.cropNumberOfBoxes,
-            outgoingUnitOfMesure: cropElement.paymentMethod,
-            outgoingPrice:cropElement.cropExpensePrice,
-            createDate:cropElement.createDate
-          }
-          dispatch('outgoings/createOutgoing',outgoing,{root:true});
         })
       });
+      if(Array.isArray(crops[0].cropFarmer.split(','))) {
+        crops[0].cropFarmer.split(',').forEach(farmer => {
+          const outgoing = creatOutgoingFarmer(rootGetters, farmer, crops[0])
+          dispatch('outgoings/createOutgoing',outgoing,{root:true});
+        });
+      } else {
+        const outgoing = creatOutgoingFarmer(rootGetters, crops[0].cropFarmer, crops[0])
+        dispatch('outgoings/createOutgoing',outgoing,{root:true});
+      }
       
   },
   async setCrop({commit,rootGetters},crop){
@@ -95,13 +95,25 @@ export const actions = {
   }
 };
 
-
+const creatOutgoingFarmer = (rootGetters, farmer, item) => {
+  const {price} = rootGetters['expenses/getExpenseByLabel'](item.paymentMethod);
+  const outgoing = {
+    outgoingLabel:farmer,
+    outgoingType:'farmer',
+    outgoingQuantity: item.paymentMethod == "Jours" ? 1 : item.cropNumberOfBoxes,
+    outgoingUnitOfMesure: item.paymentMethod,
+    outgoingPrice: item.paymentMethod == "Jours" ? price : item.cropExpensePrice,
+    createDate:item.createDate
+  }
+  return outgoing
+}
 const createCropItems = (rootGetters, item) => {
   const {price} = rootGetters['expenses/getExpenseByLabel'](item.pme);
   const crops = []
   if(item.cropType == "peach") {
-    item.calibers.forEach(caliber => {
-      if(caliber.value && caliber.value > 0) {
+    const elements = item.calibers
+    Object.keys(elements).forEach(key => {
+      if(elements[key].value && elements[key].value > 0) {
         const crop = {
           paymentMethod: item.pme,
           cropFarmer: Array.isArray(item.cropFarmer) ? item.cropFarmer.join(",") : item.cropFarmer,
@@ -109,9 +121,9 @@ const createCropItems = (rootGetters, item) => {
           cropParcel:item.cropParcel,
           cropVariety:item.cropVariety,
           cropRootStock:item.cropRootStock,
-          cropCaliber:caliber.key,
-          cropNumberOfBoxes: caliber.value,
-          cropExpensePrice: item.pme == "Jours" ? ( price * item.cropFarmer.length ) / item.calibers.length : (price * caliber.value)
+          cropCaliber:elements[key].key,
+          cropNumberOfBoxes: elements[key].value,
+          cropExpensePrice: item.pme == "Jours" ? ( price * item.cropFarmer.length ) / Object.keys(elements).length : (price * elements[key].value)
         }
         crops.push(crop)
     }

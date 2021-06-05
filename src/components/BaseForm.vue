@@ -15,7 +15,7 @@
             <label :for="caliber"><code>{{ caliber }}</code>:</label>
           </div>
           <div class="col-6">
-            <b-form-input :id="caliber" type="number" @keyup="caliberSet(calibervalue, index)" min="0" v-model="calibervalue"></b-form-input>
+            <b-form-input :id="caliber" type="number" @keyup="caliberSet($event, index)" min="0"></b-form-input>
           </div>
         </div>
       </template>
@@ -114,7 +114,7 @@
   export default {
   watch: {
     paiment: function() {
-      this.item['cropFarmer'] = null
+      this.item['cropFarmer'] = ''
     }
   },
     data() {
@@ -123,7 +123,7 @@
         paiment: 'Jours',
         peachsModal: false,
         olivesModal: false,
-        calibreItems: [],
+        calibreItems: {},
         oliveItems: {}
       }
     },
@@ -155,9 +155,17 @@
       }
     },
     methods:{
-      caliberSet(value, index) {
-        this.calibreItems[index] = {key: this.item.cropCaliber[index], value: value}
-        this.item.calibers = this.calibreItems
+      caliberSet(e, index) {
+        const value = e.target.value
+        const caliber = this.item.cropCaliber[index]
+        if(Number(value)>0) {
+          this.calibreItems[caliber] = {key: caliber, value: value}
+          this.item.calibers = this.calibreItems
+        } else {
+          delete this.calibreItems[caliber]
+          this.item.calibers = this.calibreItems
+        }
+        console.log(this.calibreItems)
       },
       olivesSet(value, parcel, variety) {
         this.oliveItems[parcel + "," + variety] = {parcel: parcel, variety: variety, value: value}
@@ -169,6 +177,17 @@
         }
         if(this.checkIfEligibleFromPopUp(id, "cropVariety") && ['olives', 'almond'].includes(this.item.cropType)) {
           this.olivesModal = true
+        }
+        if(id == "outgoingType") {
+          const expenses = this.$store.getters['expenses/getExpensesByType'](this.item["outgoingType"]);
+          this.options.formFields[1].options = [
+            ...expenses.map(expense => expense.expenseLabel)
+          ]
+        }
+        if(id == "outgoingLabel") {
+          const expense = this.$store.getters['expenses/getExpenseByLabel'](this.item["outgoingLabel"]);
+          this.item.outgoingUnitOfMesure = expense.expenseMesureUnit
+          this.item.outgoingPrice = expense.price
         }
       }, 
       checkIfEligibleFromPopUp(id, field) {

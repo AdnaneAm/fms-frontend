@@ -53,17 +53,17 @@
         }
       },
       "expenses":{
-        "text":"Dépenses",
+        "text":"Sous-familles de dépenses",
         "list":{
-            "expenses":"Liste des dépenses",
-            "addexpenses":"Ajouter un dépense"
+            "expenses":"Liste des s-f dépenses",
+            "addexpenses":"Ajouter une s-f dépense"
         }
       },
       "expensetypes":{
-        "text":"Types de dépenses",
+        "text":"Familles de dépenses",
         "list":{
-          "expensetypes":"types de dépenses",
-          "addexpensetype":"Ajouter type de dépenses"
+          "expensetypes":"Familles de dépenses",
+          "addexpensetype":"Ajouter une famille de dépenses"
         }
       },
       "outgoings":{
@@ -252,9 +252,11 @@
       "parcel": "Choisir une/des parcelle(s)",
       "variety": "Choisir une/des variété(s)",
       "rootstock": "Choisir un porte-greffe",
-      "caliber": "Choisir un/des callibre(s)"
+      "caliber": "Choisir un/des callibre(s)",
+      "expense": "Choisir une famille de dépense"
     },
     "forms":{
+      "price": "Montant",
       "farmer": "Ouvrier",
       "fullname":"Nom et prénom",
       "phone":"Numéro de téléphone",
@@ -273,8 +275,8 @@
       "olives":"Olives",
       "almond":"Amande",
       "relatedtofarmers":"A la tâche",
-      "expenselabel":"Etiquette de dépense",
-      "expensetype":"Type de dépense",
+      "expenselabel":"Sous famille de dépense",
+      "expensetype":"Famille de dépense",
       "expensemeasureunit":"Unité de mesure",
       "outgoinglabel":"Etiquette de charge",
       "outgoingtype":"Type de charge",

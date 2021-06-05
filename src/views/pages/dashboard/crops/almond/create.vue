@@ -33,7 +33,7 @@
         ]
       },
       farmers(){
-        return this.$store.getters['expenses/getExpensesByType']('farmer');
+        return this.$store.getters['ouvrier/getOuvriers'];
       },
       parcels(){
         return this.$store.getters['parcels/getParcels'];
@@ -51,7 +51,8 @@
           createItemAction:'crops/createCrop',
           createItemButton:'pages.addalmondcrop.title',
           redirectRouteName:'almond-crops',
-          initialItem:{         
+          initialItem:{     
+            cropFarmer:'',    
             cropType:'almond',
             cropParcel:'',
             cropVariety:'',
@@ -68,7 +69,7 @@
               placeholder: 'pick.farmer',
               type:'select',
               options:[
-                ...this.farmers.map(farmer => farmer.expenseLabel)
+                ...this.farmers.map(farmer => farmer.ouvrier)
               ]
             },
             {

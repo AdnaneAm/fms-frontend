@@ -33,7 +33,7 @@
         ]
       },
       farmers(){
-        return this.$store.getters['expenses/getExpensesByType']('farmer');
+        return this.$store.getters['ouvrier/getOuvriers'];
       },
       parcels(){
         return this.$store.getters['parcels/getParcels'];
@@ -72,7 +72,7 @@
               labelFor:'farmer',
               type:'select',
               options:[
-                ...this.farmers.map(farmer => farmer.expenseLabel)
+                ...this.farmers.map(farmer => farmer.ouvrier)
               ]
             },
             {

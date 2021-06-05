@@ -51,25 +51,22 @@
           },
           formFields:[
             {
-              id:'expense-label',
-              key:'expenseLabel',
-              label:'forms.expenselabel',
-              labelFor:'expense-label',
-              type:'text'
-            },
-            {
               id:'expense-type',
               key:'expenseType',
               label:'forms.expensetype',
               labelFor:'expense-type',
               type:'select',
+              placeholder: 'pick.expense',
               options:[
-                {
-                  value:null,
-                  text:'Choose an expense type'
-                },
                 ...this.expensetypes.map(expenseType => expenseType.expenseType)
               ]
+            },
+            {
+              id:'expense-label',
+              key:'expenseLabel',
+              label:'forms.expenselabel',
+              labelFor:'expense-label',
+              type:'text'
             },
             {
               id:'expense-price',

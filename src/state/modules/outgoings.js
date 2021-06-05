@@ -56,7 +56,9 @@ export const actions = {
     });
   },
   async createOutgoing({commit},outgoing){
-      console.log(outgoing)
+      if(outgoing.outgoingType != "farmer") {
+        outgoing.outgoingPrice = outgoing.outgoingQuantity * outgoing.outgoingPrice
+      }
       await axios.post(process.env.VUE_APP_API_BASE_URL+'outgoings/',outgoing,{
         headers:authHeader()
       }).then(res => {

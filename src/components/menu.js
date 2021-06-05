@@ -91,24 +91,6 @@ export const menuItems = [
         ]
     },
     {
-        id:17,
-        label:'menuitems.expenses.text',
-        icon:'ri-bill-line',
-        requireAdmin:true,
-        subItems:[
-            {
-                id:18,
-                label:'menuitems.expenses.list.expenses',
-                link:'/expenses'
-            },
-            {
-                id:19,
-                label:'menuitems.expenses.list.addexpenses',
-                link:'/expenses/create'
-            },
-        ]
-    },
-    {
         id:20,
         label:'menuitems.expensetypes.text',
         icon:'ri-ticket-line',
@@ -123,6 +105,24 @@ export const menuItems = [
                 id:22,
                 label:'menuitems.expensetypes.list.addexpensetype',
                 link:'/expensetypes/create'
+            },
+        ]
+    },
+    {
+        id:17,
+        label:'menuitems.expenses.text',
+        icon:'ri-bill-line',
+        requireAdmin:true,
+        subItems:[
+            {
+                id:18,
+                label:'menuitems.expenses.list.expenses',
+                link:'/expenses'
+            },
+            {
+                id:19,
+                label:'menuitems.expenses.list.addexpenses',
+                link:'/expenses/create'
             },
         ]
     },
